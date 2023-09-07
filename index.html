@@ -217,6 +217,10 @@
                 return L.circleMarker(latlng, style_ClassStateTotals_6_0(feature));
             },
         });
+        var cluster_ClassStateTotals_6 = new L.MarkerClusterGroup({showCoverageOnHover: false,
+            spiderfyDistanceMultiplier: 2});
+        cluster_ClassStateTotals_6.addLayer(layer_ClassStateTotals_6);
+
         bounds_group.addLayer(layer_ClassStateTotals_6);
         function pop_ClassClustered_7(feature, layer) {
             layer.on({
@@ -368,7 +372,8 @@
             });
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2"><strong>State Total</strong><br />' + (feature.properties['State Total'] !== null ? autolinker.link(feature.properties['State Total'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">State Total</th>\
+                        <td>' + (feature.properties['State Total'] !== null ? autolinker.link(feature.properties['State Total'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Map-Name</th>\
@@ -499,7 +504,8 @@
                         <td>' + (feature.properties['State Total'] !== null ? autolinker.link(feature.properties['State Total'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2"><strong>Map-Name</strong><br />' + (feature.properties['Map-Name'] !== null ? autolinker.link(feature.properties['Map-Name'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Map-Name</th>\
+                        <td>' + (feature.properties['Map-Name'] !== null ? autolinker.link(feature.properties['Map-Name'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Name</th>\
@@ -530,7 +536,8 @@
                         <td>' + (feature.properties['City'] !== null ? autolinker.link(feature.properties['City'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2"><strong>State</strong><br />' + (feature.properties['State'] !== null ? autolinker.link(feature.properties['State'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">State</th>\
+                        <td>' + (feature.properties['State'] !== null ? autolinker.link(feature.properties['State'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Zip Code</th>\
@@ -646,7 +653,7 @@
         document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
         .title += 'Search for a place';
         var baseMaps = {};
-        L.control.layers(baseMaps,{'<img src="legend/Class_9.png" /> Class': layer_Class_9,'<img src="legend/ClasswNames_8.png" /> Class-w/Names': layer_ClasswNames_8,'<img src="legend/ClassClustered_7.png" /> Class-Clustered': cluster_ClassClustered_7,'<img src="legend/ClassStateTotals_6.png" /> Class-State Totals': layer_ClassStateTotals_6,"Map-Outline": layer_MapOutline_5,"Map-OSM Road": layer_MapOSMRoad_4,"Map-Google Road": layer_MapGoogleRoad_3,"Map-Google Satellite": layer_MapGoogleSatellite_2,"Map-Google Hybrid": layer_MapGoogleHybrid_1,"Map-Waze Road": layer_MapWazeRoad_0,},{collapsed:false}).addTo(map);
+        L.control.layers(baseMaps,{'<img src="legend/Class_9.png" /> Class': layer_Class_9,'<img src="legend/ClasswNames_8.png" /> Class-w/Names': layer_ClasswNames_8,'<img src="legend/ClassClustered_7.png" /> Class-Clustered': cluster_ClassClustered_7,'<img src="legend/ClassStateTotals_6.png" /> Class-State Totals': cluster_ClassStateTotals_6,"Map-Outline": layer_MapOutline_5,"Map-OSM Road": layer_MapOSMRoad_4,"Map-Google Road": layer_MapGoogleRoad_3,"Map-Google Satellite": layer_MapGoogleSatellite_2,"Map-Google Hybrid": layer_MapGoogleHybrid_1,"Map-Waze Road": layer_MapWazeRoad_0,},{collapsed:false}).addTo(map);
         setBounds();
         var i = 0;
         layer_ClassStateTotals_6.eachLayer(function(layer) {
