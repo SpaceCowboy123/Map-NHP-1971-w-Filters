@@ -22,7 +22,7 @@
             margin: 0;
         }
         </style>
-        <title>NHP Class of 1971 Directory v05</title>
+        <title>NHP Class of 1971 Directory v10-IP</title>
     </head>
     <body>
         <div id="map">
@@ -75,6 +75,7 @@
             if (bounds_group.getLayers().length) {
                 map.fitBounds(bounds_group.getBounds());
             }
+            map.setMaxBounds(map.getBounds());
         }
         map.createPane('pane_MapWazeRoad_0');
         map.getPane('pane_MapWazeRoad_0').style.zIndex = 400;
@@ -167,68 +168,16 @@
             });
             var popupContent = '<table>\
                     <tr>\
-                        <th scope="row">Name</th>\
+                        <th scope="row">State and # of Classmates</th>\
+                        <td>' + (feature.properties['Map-Name'] !== null ? autolinker.link(feature.properties['Map-Name'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">State Name</th>\
                         <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Last</th>\
-                        <td>' + (feature.properties['Last'] !== null ? autolinker.link(feature.properties['Last'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">First</th>\
-                        <td>' + (feature.properties['First'] !== null ? autolinker.link(feature.properties['First'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Middle Name</th>\
-                        <td>' + (feature.properties['Middle Name'] !== null ? autolinker.link(feature.properties['Middle Name'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Married Name</th>\
-                        <td>' + (feature.properties['Married Name'] !== null ? autolinker.link(feature.properties['Married Name'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Street</th>\
-                        <td>' + (feature.properties['Street'] !== null ? autolinker.link(feature.properties['Street'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">City</th>\
-                        <td>' + (feature.properties['City'] !== null ? autolinker.link(feature.properties['City'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">State</th>\
+                        <th scope="row">State Abbreviation</th>\
                         <td>' + (feature.properties['State'] !== null ? autolinker.link(feature.properties['State'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Zip Code</th>\
-                        <td>' + (feature.properties['Map-Zipcode'] !== null ? autolinker.link(feature.properties['Map-Zipcode'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">eMail Address #1</th>\
-                        <td>' + (feature.properties['Map-eMail Address-1'] !== null ? autolinker.link(feature.properties['Map-eMail Address-1'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">eMail Address #2</th>\
-                        <td>' + (feature.properties['Map-eMail Address-2'] !== null ? autolinker.link(feature.properties['Map-eMail Address-2'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Cell Phone</th>\
-                        <td>' + (feature.properties['Map-Mobile Phone'] !== null ? autolinker.link(feature.properties['Map-Mobile Phone'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Home Phone</th>\
-                        <td>' + (feature.properties['Map-Home Phone'] !== null ? autolinker.link(feature.properties['Map-Home Phone'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Group-Classmates</th>\
-                        <td>' + (feature.properties['Group-Classmates'] !== null ? autolinker.link(feature.properties['Group-Classmates'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Deceased?</th>\
-                        <td>' + (feature.properties['Deceased'] !== null ? autolinker.link(feature.properties['Deceased'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Primary or Secondary Address?</th>\
-                        <td>' + (feature.properties['Primary/Secondary'] !== null ? autolinker.link(feature.properties['Primary/Secondary'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
@@ -237,16 +186,16 @@
         function style_ClassStateTotals_6_0() {
             return {
                 pane: 'pane_ClassStateTotals_6',
-                radius: 4.0,
+                radius: 8.0,
                 opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
+                color: 'rgba(50,87,128,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 1,
+                weight: 2.0,
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(190,207,80,1.0)',
+                fillColor: 'rgba(72,123,182,1.0)',
                 interactive: true,
             }
         }
@@ -286,6 +235,14 @@
                 mouseover: highlightFeature,
             });
             var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">State Total</th>\
+                        <td>' + (feature.properties['State Total'] !== null ? autolinker.link(feature.properties['State Total'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Map-Name</th>\
+                        <td>' + (feature.properties['Map-Name'] !== null ? autolinker.link(feature.properties['Map-Name'].toLocaleString()) : '') + '</td>\
+                    </tr>\
                     <tr>\
                         <th scope="row">Name</th>\
                         <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
@@ -366,7 +323,7 @@
                 weight: 1,
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(133,182,111,1.0)',
+                fillColor: 'rgba(190,207,80,1.0)',
                 interactive: true,
             }
         }
@@ -410,6 +367,13 @@
                 mouseover: highlightFeature,
             });
             var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2"><strong>State Total</strong><br />' + (feature.properties['State Total'] !== null ? autolinker.link(feature.properties['State Total'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Map-Name</th>\
+                        <td>' + (feature.properties['Map-Name'] !== null ? autolinker.link(feature.properties['Map-Name'].toLocaleString()) : '') + '</td>\
+                    </tr>\
                     <tr>\
                         <th scope="row">Name</th>\
                         <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
@@ -490,7 +454,7 @@
                 weight: 1,
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(133,182,111,1.0)',
+                fillColor: 'rgba(190,207,80,1.0)',
                 interactive: true,
             }
         }
@@ -531,6 +495,13 @@
             });
             var popupContent = '<table>\
                     <tr>\
+                        <th scope="row">State Total</th>\
+                        <td>' + (feature.properties['State Total'] !== null ? autolinker.link(feature.properties['State Total'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Map-Name</strong><br />' + (feature.properties['Map-Name'] !== null ? autolinker.link(feature.properties['Map-Name'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
                         <th scope="row">Name</th>\
                         <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
                     </tr>\
@@ -559,8 +530,7 @@
                         <td>' + (feature.properties['City'] !== null ? autolinker.link(feature.properties['City'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">State</th>\
-                        <td>' + (feature.properties['State'] !== null ? autolinker.link(feature.properties['State'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2"><strong>State</strong><br />' + (feature.properties['State'] !== null ? autolinker.link(feature.properties['State'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Zip Code</th>\
@@ -641,7 +611,7 @@
                 return this._div;
             };
             title.update = function () {
-                this._div.innerHTML = '<h2>NHP Class of 1971 Directory v05</h2>';
+                this._div.innerHTML = '<h2>NHP Class of 1971 Directory v10-IP</h2>';
             };
             title.addTo(map);
             var abstract = new L.Control({'position':'topright'});
@@ -684,7 +654,7 @@
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['Name'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_ClassStateTotals_6'});
+            layer.bindTooltip((layer.feature.properties['Map-Name'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['Map-Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_ClassStateTotals_6'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
@@ -730,7 +700,7 @@
         document.getElementById("all").appendChild(col1);
         document.getElementById("all").appendChild(col2);
         col1.appendChild(mapDiv)
-        var Filters = {"Primary/Secondary": "str","State": "str","Group-Classmates": "str","Name": "str","Deceased": "str"};
+        var Filters = {"Deceased": "str","Primary/Secondary": "str","Group-Classmates": "str","State": "str"};
         function filterFunc() {
           map.eachLayer(function(lyr){
           if ("options" in lyr && "dataVar" in lyr["options"]){
@@ -823,7 +793,7 @@
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['Name'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_ClassStateTotals_6'});
+            layer.bindTooltip((layer.feature.properties['Map-Name'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['Map-Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_ClassStateTotals_6'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
@@ -846,6 +816,38 @@
           }
           })
         }
+            document.getElementById("menu").appendChild(
+                document.createElement("div"));
+            var div_Deceased = document.createElement('div');
+            div_Deceased.id = "div_Deceased";
+            div_Deceased.className= "filterselect";
+            document.getElementById("menu").appendChild(div_Deceased);
+            sel_Deceased = document.createElement('select');
+            sel_Deceased.multiple = true;
+            sel_Deceased.size = 3;
+            sel_Deceased.id = "sel_Deceased";
+            var Deceased_options_str = "<option value='' unselected></option>";
+            sel_Deceased.onchange = function(){filterFunc()};
+            Deceased_options_str  += '<option value="Deceased">Deceased</option>';
+            Deceased_options_str  += '<option value="N/A">N/A</option>';
+            Deceased_options_str  += '<option value="Still Alive & Well">Still Alive & Well</option>';
+            sel_Deceased.innerHTML = Deceased_options_str;
+            div_Deceased.appendChild(sel_Deceased);
+            var lab_Deceased = document.createElement('div');
+            lab_Deceased.innerHTML = 'Deceased';
+            lab_Deceased.className = 'filterlabel';
+            div_Deceased.appendChild(lab_Deceased);
+            var reset_Deceased = document.createElement('div');
+            reset_Deceased.innerHTML = 'clear filter';
+            reset_Deceased.className = 'filterlabel';
+            reset_Deceased.onclick = function() {
+                var options = document.getElementById("sel_Deceased").options;
+                for (var i=0; i < options.length; i++) {
+                    options[i].selected = false;
+                }
+                filterFunc();
+            };
+            div_Deceased.appendChild(reset_Deceased);
             document.getElementById("menu").appendChild(
                 document.createElement("div"));
             var div_PrimarySecondary = document.createElement('div');
@@ -880,6 +882,40 @@
             div_PrimarySecondary.appendChild(reset_PrimarySecondary);
             document.getElementById("menu").appendChild(
                 document.createElement("div"));
+            var div_GroupClassmates = document.createElement('div');
+            div_GroupClassmates.id = "div_GroupClassmates";
+            div_GroupClassmates.className= "filterselect";
+            document.getElementById("menu").appendChild(div_GroupClassmates);
+            sel_GroupClassmates = document.createElement('select');
+            sel_GroupClassmates.multiple = true;
+            sel_GroupClassmates.size = 5;
+            sel_GroupClassmates.id = "sel_GroupClassmates";
+            var GroupClassmates_options_str = "<option value='' unselected></option>";
+            sel_GroupClassmates.onchange = function(){filterFunc()};
+            GroupClassmates_options_str  += '<option value="Classmate Count By State">Classmate Count By State</option>';
+            GroupClassmates_options_str  += '<option value="Maria Regina Class of 1971">Maria Regina Class of 1971</option>';
+            GroupClassmates_options_str  += '<option value="NHP Class of 1971">NHP Class of 1971</option>';
+            GroupClassmates_options_str  += '<option value="NHP Class of 1971 - DECEASED">NHP Class of 1971 - DECEASED</option>';
+            GroupClassmates_options_str  += '<option value="NHP Class of 1972">NHP Class of 1972</option>';
+            sel_GroupClassmates.innerHTML = GroupClassmates_options_str;
+            div_GroupClassmates.appendChild(sel_GroupClassmates);
+            var lab_GroupClassmates = document.createElement('div');
+            lab_GroupClassmates.innerHTML = 'Group-Classmates';
+            lab_GroupClassmates.className = 'filterlabel';
+            div_GroupClassmates.appendChild(lab_GroupClassmates);
+            var reset_GroupClassmates = document.createElement('div');
+            reset_GroupClassmates.innerHTML = 'clear filter';
+            reset_GroupClassmates.className = 'filterlabel';
+            reset_GroupClassmates.onclick = function() {
+                var options = document.getElementById("sel_GroupClassmates").options;
+                for (var i=0; i < options.length; i++) {
+                    options[i].selected = false;
+                }
+                filterFunc();
+            };
+            div_GroupClassmates.appendChild(reset_GroupClassmates);
+            document.getElementById("menu").appendChild(
+                document.createElement("div"));
             var div_State = document.createElement('div');
             div_State.id = "div_State";
             div_State.className= "filterselect";
@@ -890,7 +926,6 @@
             sel_State.id = "sel_State";
             var State_options_str = "<option value='' unselected></option>";
             sel_State.onchange = function(){filterFunc()};
-            State_options_str  += '<option value="NULL">NULL</option>';
             State_options_str  += '<option value="AR">AR</option>';
             State_options_str  += '<option value="AZ">AZ</option>';
             State_options_str  += '<option value="CA">CA</option>';
@@ -938,490 +973,15 @@
                 filterFunc();
             };
             div_State.appendChild(reset_State);
-            document.getElementById("menu").appendChild(
-                document.createElement("div"));
-            var div_GroupClassmates = document.createElement('div');
-            div_GroupClassmates.id = "div_GroupClassmates";
-            div_GroupClassmates.className= "filterselect";
-            document.getElementById("menu").appendChild(div_GroupClassmates);
-            sel_GroupClassmates = document.createElement('select');
-            sel_GroupClassmates.multiple = true;
-            sel_GroupClassmates.size = 5;
-            sel_GroupClassmates.id = "sel_GroupClassmates";
-            var GroupClassmates_options_str = "<option value='' unselected></option>";
-            sel_GroupClassmates.onchange = function(){filterFunc()};
-            GroupClassmates_options_str  += '<option value="Classmate Count By State">Classmate Count By State</option>';
-            GroupClassmates_options_str  += '<option value="Maria Regina Class of 1971">Maria Regina Class of 1971</option>';
-            GroupClassmates_options_str  += '<option value="NHP Class of 1971">NHP Class of 1971</option>';
-            GroupClassmates_options_str  += '<option value="NHP Class of 1971 - DECEASED">NHP Class of 1971 - DECEASED</option>';
-            GroupClassmates_options_str  += '<option value="NHP Class of 1972">NHP Class of 1972</option>';
-            sel_GroupClassmates.innerHTML = GroupClassmates_options_str;
-            div_GroupClassmates.appendChild(sel_GroupClassmates);
-            var lab_GroupClassmates = document.createElement('div');
-            lab_GroupClassmates.innerHTML = 'Group-Classmates';
-            lab_GroupClassmates.className = 'filterlabel';
-            div_GroupClassmates.appendChild(lab_GroupClassmates);
-            var reset_GroupClassmates = document.createElement('div');
-            reset_GroupClassmates.innerHTML = 'clear filter';
-            reset_GroupClassmates.className = 'filterlabel';
-            reset_GroupClassmates.onclick = function() {
-                var options = document.getElementById("sel_GroupClassmates").options;
-                for (var i=0; i < options.length; i++) {
-                    options[i].selected = false;
-                }
-                filterFunc();
-            };
-            div_GroupClassmates.appendChild(reset_GroupClassmates);
-            document.getElementById("menu").appendChild(
-                document.createElement("div"));
-            var div_Name = document.createElement('div');
-            div_Name.id = "div_Name";
-            div_Name.className= "filterselect";
-            document.getElementById("menu").appendChild(div_Name);
-            sel_Name = document.createElement('select');
-            sel_Name.multiple = true;
-            sel_Name.size = 10;
-            sel_Name.id = "sel_Name";
-            var Name_options_str = "<option value='' unselected></option>";
-            sel_Name.onchange = function(){filterFunc()};
-            Name_options_str  += '<option value="Alfino, Philip">Alfino, Philip</option>';
-            Name_options_str  += '<option value="Alverson, Jay">Alverson, Jay</option>';
-            Name_options_str  += '<option value="Ammon, Robert">Ammon, Robert</option>';
-            Name_options_str  += '<option value="Amodeo , Vincent">Amodeo , Vincent</option>';
-            Name_options_str  += '<option value="Amore (Davis), Maria">Amore (Davis), Maria</option>';
-            Name_options_str  += '<option value="Andersen (Sumutka), Susan">Andersen (Sumutka), Susan</option>';
-            Name_options_str  += '<option value="Arizona (58 Classsmates)">Arizona (58 Classsmates)</option>';
-            Name_options_str  += '<option value="Arkansas (1 Classsmates)">Arkansas (1 Classsmates)</option>';
-            Name_options_str  += '<option value="Armband (Henkel), Abbe">Armband (Henkel), Abbe</option>';
-            Name_options_str  += '<option value="Atsalis, Louis">Atsalis, Louis</option>';
-            Name_options_str  += '<option value="Avellini, Bob">Avellini, Bob</option>';
-            Name_options_str  += '<option value="Bader (Wise), Randi">Bader (Wise), Randi</option>';
-            Name_options_str  += '<option value="Baierlein (Melvin), Barbara">Baierlein (Melvin), Barbara</option>';
-            Name_options_str  += '<option value="Banahan, Susan">Banahan, Susan</option>';
-            Name_options_str  += '<option value="Baricevac, Thomas">Baricevac, Thomas</option>';
-            Name_options_str  += '<option value="Barry, Marco">Barry, Marco</option>';
-            Name_options_str  += '<option value="Barthelmes, Edmund">Barthelmes, Edmund</option>';
-            Name_options_str  += '<option value="Bartkowski (Dern), Patricia">Bartkowski (Dern), Patricia</option>';
-            Name_options_str  += '<option value="Bay, Peter">Bay, Peter</option>';
-            Name_options_str  += '<option value="Beck (Brodesky), Patricia">Beck (Brodesky), Patricia</option>';
-            Name_options_str  += '<option value="Beebe (Thomas), Donna">Beebe (Thomas), Donna</option>';
-            Name_options_str  += '<option value="Belyus, Paul">Belyus, Paul</option>';
-            Name_options_str  += '<option value="Berg, Robert">Berg, Robert</option>';
-            Name_options_str  += '<option value="Bernauer, Wayne">Bernauer, Wayne</option>';
-            Name_options_str  += '<option value="Bernstein, Andrew">Bernstein, Andrew</option>';
-            Name_options_str  += '<option value="Bertolini (Porr), Tina">Bertolini (Porr), Tina</option>';
-            Name_options_str  += '<option value="Biancanelli, Joseph (Joe)">Biancanelli, Joseph (Joe)</option>';
-            Name_options_str  += '<option value="Boardman, James">Boardman, James</option>';
-            Name_options_str  += '<option value="Boch, Richard">Boch, Richard</option>';
-            Name_options_str  += '<option value="Bogart (Hurlburt), Helen">Bogart (Hurlburt), Helen</option>';
-            Name_options_str  += '<option value="Boland, Mary Lou">Boland, Mary Lou</option>';
-            Name_options_str  += '<option value="Bonnevie, John">Bonnevie, John</option>';
-            Name_options_str  += '<option value="Bradford, Raymond">Bradford, Raymond</option>';
-            Name_options_str  += '<option value="Broderick (Higgins), Anne">Broderick (Higgins), Anne</option>';
-            Name_options_str  += '<option value="Brown (Schlegelmilch), Maryanne">Brown (Schlegelmilch), Maryanne</option>';
-            Name_options_str  += '<option value="Brown, Frederic (Fred)">Brown, Frederic (Fred)</option>';
-            Name_options_str  += '<option value="Browne (Schlegelmilch), Maryanne">Browne (Schlegelmilch), Maryanne</option>';
-            Name_options_str  += '<option value="Buehler (Dick), Barbara">Buehler (Dick), Barbara</option>';
-            Name_options_str  += '<option value="Bungarz, Richard">Bungarz, Richard</option>';
-            Name_options_str  += '<option value="Burke, Michael">Burke, Michael</option>';
-            Name_options_str  += '<option value="Calabrese, Ralph">Calabrese, Ralph</option>';
-            Name_options_str  += '<option value="California (9 Classsmates)">California (9 Classsmates)</option>';
-            Name_options_str  += '<option value="Camarda (Riccio), Francine">Camarda (Riccio), Francine</option>';
-            Name_options_str  += '<option value="Cappuccio, Randy">Cappuccio, Randy</option>';
-            Name_options_str  += '<option value="Carini, Daniel">Carini, Daniel</option>';
-            Name_options_str  += '<option value="Carlin (Hartlage), Eileen">Carlin (Hartlage), Eileen</option>';
-            Name_options_str  += '<option value="Carroll, Donald">Carroll, Donald</option>';
-            Name_options_str  += '<option value="Carter, Leward">Carter, Leward</option>';
-            Name_options_str  += '<option value="Castoria, Daniel">Castoria, Daniel</option>';
-            Name_options_str  += '<option value="Catranbone, Cheryl">Catranbone, Cheryl</option>';
-            Name_options_str  += '<option value="Chao, Mabel">Chao, Mabel</option>';
-            Name_options_str  += '<option value="Chmielewski (Dara), Helen">Chmielewski (Dara), Helen</option>';
-            Name_options_str  += '<option value="Choinski, Joseph">Choinski, Joseph</option>';
-            Name_options_str  += '<option value="Christenson, Gary">Christenson, Gary</option>';
-            Name_options_str  += '<option value="Colamarino, Robert">Colamarino, Robert</option>';
-            Name_options_str  += '<option value="Colefield, Steven">Colefield, Steven</option>';
-            Name_options_str  += '<option value="Coleman, Paul">Coleman, Paul</option>';
-            Name_options_str  += '<option value="Colorado (2 Classsmates)">Colorado (2 Classsmates)</option>';
-            Name_options_str  += '<option value="Connecticut (4 Classsmates)">Connecticut (4 Classsmates)</option>';
-            Name_options_str  += '<option value="Cornelius, Lester">Cornelius, Lester</option>';
-            Name_options_str  += '<option value="Cosenza, Victor">Cosenza, Victor</option>';
-            Name_options_str  += '<option value="Croker, Virginia">Croker, Virginia</option>';
-            Name_options_str  += '<option value="Cuadra, Maria">Cuadra, Maria</option>';
-            Name_options_str  += '<option value="Cummings (Lott), Kathleen">Cummings (Lott), Kathleen</option>';
-            Name_options_str  += '<option value="Cummings, Patricia">Cummings, Patricia</option>';
-            Name_options_str  += '<option value="D&apos;Alessandro, Steven">D&apos;Alessandro, Steven</option>';
-            Name_options_str  += '<option value="D&apos;Andrea, Vincent">D&apos;Andrea, Vincent</option>';
-            Name_options_str  += '<option value="D&apos;Angelo, Nanci">D&apos;Angelo, Nanci</option>';
-            Name_options_str  += '<option value="D&apos;Antoni, Maria">D&apos;Antoni, Maria</option>';
-            Name_options_str  += '<option value="D&apos;Oria (Bainlardi), Theresa">D&apos;Oria (Bainlardi), Theresa</option>';
-            Name_options_str  += '<option value="Dahl, Laurence">Dahl, Laurence</option>';
-            Name_options_str  += '<option value="Dara, Mark">Dara, Mark</option>';
-            Name_options_str  += '<option value="Darcy, Mary">Darcy, Mary</option>';
-            Name_options_str  += '<option value="Darrin (Bellion), Judy">Darrin (Bellion), Judy</option>';
-            Name_options_str  += '<option value="De Nicola, Michael">De Nicola, Michael</option>';
-            Name_options_str  += '<option value="Debari, Debra  J">Debari, Debra  J</option>';
-            Name_options_str  += '<option value="Delaware (2 Classsmates)">Delaware (2 Classsmates)</option>';
-            Name_options_str  += '<option value="Dempsey (Lupino), Patricia">Dempsey (Lupino), Patricia</option>';
-            Name_options_str  += '<option value="Dentici, Dennis">Dentici, Dennis</option>';
-            Name_options_str  += '<option value="Devasto (Johnson), Carolann">Devasto (Johnson), Carolann</option>';
-            Name_options_str  += '<option value="Dewaltoff (Zaniboni), Jill">Dewaltoff (Zaniboni), Jill</option>';
-            Name_options_str  += '<option value="Dibella (Bonnevie), Patricia">Dibella (Bonnevie), Patricia</option>';
-            Name_options_str  += '<option value="Dillon, Gregory">Dillon, Gregory</option>';
-            Name_options_str  += '<option value="Ditusa, Deborah">Ditusa, Deborah</option>';
-            Name_options_str  += '<option value="Doran, Jean">Doran, Jean</option>';
-            Name_options_str  += '<option value="Douglas (Parzuchowski), Ellen Louise">Douglas (Parzuchowski), Ellen Louise</option>';
-            Name_options_str  += '<option value="Doyle (Mcginn), Elizabeth">Doyle (Mcginn), Elizabeth</option>';
-            Name_options_str  += '<option value="Drdul (Soudmand), Arlene">Drdul (Soudmand), Arlene</option>';
-            Name_options_str  += '<option value="Duley (Cerretani), Diane">Duley (Cerretani), Diane</option>';
-            Name_options_str  += '<option value="Dunn, James">Dunn, James</option>';
-            Name_options_str  += '<option value="Eilbott, Carol">Eilbott, Carol</option>';
-            Name_options_str  += '<option value="Eisenberg, Nancy">Eisenberg, Nancy</option>';
-            Name_options_str  += '<option value="Emond, Raymond">Emond, Raymond</option>';
-            Name_options_str  += '<option value="Esposito, Henry">Esposito, Henry</option>';
-            Name_options_str  += '<option value="Faberman, Richard">Faberman, Richard</option>';
-            Name_options_str  += '<option value="Fanizzi, Annette">Fanizzi, Annette</option>';
-            Name_options_str  += '<option value="Fey (Minch), Rosemarie">Fey (Minch), Rosemarie</option>';
-            Name_options_str  += '<option value="Figuredo, Enrique (Henry)">Figuredo, Enrique (Henry)</option>';
-            Name_options_str  += '<option value="Figuredo, Fernando">Figuredo, Fernando</option>';
-            Name_options_str  += '<option value="Filauro, Thomas">Filauro, Thomas</option>';
-            Name_options_str  += '<option value="Flack, Joan">Flack, Joan</option>';
-            Name_options_str  += '<option value="Fliegal, Robert">Fliegal, Robert</option>';
-            Name_options_str  += '<option value="Florida (47 Classsmates)">Florida (47 Classsmates)</option>';
-            Name_options_str  += '<option value="Frassanito, Elena">Frassanito, Elena</option>';
-            Name_options_str  += '<option value="Friedel, Glenn">Friedel, Glenn</option>';
-            Name_options_str  += '<option value="Frommer, Richard">Frommer, Richard</option>';
-            Name_options_str  += '<option value="Fumante, Ralph">Fumante, Ralph</option>';
-            Name_options_str  += '<option value="Fusco, Paul">Fusco, Paul</option>';
-            Name_options_str  += '<option value="Gaiser, George">Gaiser, George</option>';
-            Name_options_str  += '<option value="Garwood, Ricky">Garwood, Ricky</option>';
-            Name_options_str  += '<option value="Gaylord (Mudd), Linda">Gaylord (Mudd), Linda</option>';
-            Name_options_str  += '<option value="Geiger, Barbara">Geiger, Barbara</option>';
-            Name_options_str  += '<option value="Gentile, Bruno">Gentile, Bruno</option>';
-            Name_options_str  += '<option value="Gentile, Judy">Gentile, Judy</option>';
-            Name_options_str  += '<option value="Gentile, Roger">Gentile, Roger</option>';
-            Name_options_str  += '<option value="Gessner, Douglas">Gessner, Douglas</option>';
-            Name_options_str  += '<option value="Gilhooley, Robert">Gilhooley, Robert</option>';
-            Name_options_str  += '<option value="Gilroy (Perillo), Claudia">Gilroy (Perillo), Claudia</option>';
-            Name_options_str  += '<option value="Giosa, Susan">Giosa, Susan</option>';
-            Name_options_str  += '<option value="Golashesky (Lynch), Laura">Golashesky (Lynch), Laura</option>';
-            Name_options_str  += '<option value="Gorges (Ostermann), Joan">Gorges (Ostermann), Joan</option>';
-            Name_options_str  += '<option value="Granfortuna, Patricia">Granfortuna, Patricia</option>';
-            Name_options_str  += '<option value="Grant, Kathleen  F">Grant, Kathleen  F</option>';
-            Name_options_str  += '<option value="Graziano, John">Graziano, John</option>';
-            Name_options_str  += '<option value="Grimmelbein (Pingel), Dorothea">Grimmelbein (Pingel), Dorothea</option>';
-            Name_options_str  += '<option value="Gromatsky, Alfred (Al)">Gromatsky, Alfred (Al)</option>';
-            Name_options_str  += '<option value="Grossman, Nancy">Grossman, Nancy</option>';
-            Name_options_str  += '<option value="Grund, David">Grund, David</option>';
-            Name_options_str  += '<option value="Guma, Daniel">Guma, Daniel</option>';
-            Name_options_str  += '<option value="Gundersen, Joan">Gundersen, Joan</option>';
-            Name_options_str  += '<option value="Haas (Mazza), Debra">Haas (Mazza), Debra</option>';
-            Name_options_str  += '<option value="Hampel (Pinter), Laurie">Hampel (Pinter), Laurie</option>';
-            Name_options_str  += '<option value="Hanrahan, John">Hanrahan, John</option>';
-            Name_options_str  += '<option value="Harbich, Frederic">Harbich, Frederic</option>';
-            Name_options_str  += '<option value="Hawaii (1 Classsmates)">Hawaii (1 Classsmates)</option>';
-            Name_options_str  += '<option value="Healy, Peter B">Healy, Peter B</option>';
-            Name_options_str  += '<option value="Hejduck Vega (Vega), Nancy">Hejduck Vega (Vega), Nancy</option>';
-            Name_options_str  += '<option value="Hejduk (Vega), Nancy">Hejduk (Vega), Nancy</option>';
-            Name_options_str  += '<option value="Herlinger (Stump), Carole">Herlinger (Stump), Carole</option>';
-            Name_options_str  += '<option value="Hiltz, Joan">Hiltz, Joan</option>';
-            Name_options_str  += '<option value="Hines (Coppola), Maureen">Hines (Coppola), Maureen</option>';
-            Name_options_str  += '<option value="Hochheiser, Robert">Hochheiser, Robert</option>';
-            Name_options_str  += '<option value="Hoffman, Anne Marie">Hoffman, Anne Marie</option>';
-            Name_options_str  += '<option value="Hollmuller (Hagen), Christine">Hollmuller (Hagen), Christine</option>';
-            Name_options_str  += '<option value="Holobinka, Katherine">Holobinka, Katherine</option>';
-            Name_options_str  += '<option value="Howard, Marielena Beatrice">Howard, Marielena Beatrice</option>';
-            Name_options_str  += '<option value="Hunter, Jeffery">Hunter, Jeffery</option>';
-            Name_options_str  += '<option value="Illinois (2 Classsmates)">Illinois (2 Classsmates)</option>';
-            Name_options_str  += '<option value="Indiana (2 Classsmates)">Indiana (2 Classsmates)</option>';
-            Name_options_str  += '<option value="Jackle, William">Jackle, William</option>';
-            Name_options_str  += '<option value="Jackson, Meredith">Jackson, Meredith</option>';
-            Name_options_str  += '<option value="Jaronczyk (Connors), Joyce">Jaronczyk (Connors), Joyce</option>';
-            Name_options_str  += '<option value="Johnson, Eric">Johnson, Eric</option>';
-            Name_options_str  += '<option value="Johnson, Steven Wayne">Johnson, Steven Wayne</option>';
-            Name_options_str  += '<option value="Katacin, Robert">Katacin, Robert</option>';
-            Name_options_str  += '<option value="Kearney, Ann">Kearney, Ann</option>';
-            Name_options_str  += '<option value="Kelly, Michael">Kelly, Michael</option>';
-            Name_options_str  += '<option value="Kentucky (2 Classsmates)">Kentucky (2 Classsmates)</option>';
-            Name_options_str  += '<option value="Kick, Geraldine Patrice">Kick, Geraldine Patrice</option>';
-            Name_options_str  += '<option value="Kizner, Leslie">Kizner, Leslie</option>';
-            Name_options_str  += '<option value="Klueber, John (Lance)">Klueber, John (Lance)</option>';
-            Name_options_str  += '<option value="Klupka (Kennelly), Ellen">Klupka (Kennelly), Ellen</option>';
-            Name_options_str  += '<option value="Kostecki, Camille">Kostecki, Camille</option>';
-            Name_options_str  += '<option value="Kotarski, Edward">Kotarski, Edward</option>';
-            Name_options_str  += '<option value="Krupa, Stanley">Krupa, Stanley</option>';
-            Name_options_str  += '<option value="Kusmierski, Walter">Kusmierski, Walter</option>';
-            Name_options_str  += '<option value="Kustek, Robert">Kustek, Robert</option>';
-            Name_options_str  += '<option value="Lananna, Vincent">Lananna, Vincent</option>';
-            Name_options_str  += '<option value="Larose, Ellen Marie">Larose, Ellen Marie</option>';
-            Name_options_str  += '<option value="Lasko, Gloria">Lasko, Gloria</option>';
-            Name_options_str  += '<option value="Laube (Gaska), Susan">Laube (Gaska), Susan</option>';
-            Name_options_str  += '<option value="Laudani, Susan">Laudani, Susan</option>';
-            Name_options_str  += '<option value="Lauinger (Schmidt), Patricia">Lauinger (Schmidt), Patricia</option>';
-            Name_options_str  += '<option value="Leibow, Steven">Leibow, Steven</option>';
-            Name_options_str  += '<option value="Leshnick (Kaye), Grace">Leshnick (Kaye), Grace</option>';
-            Name_options_str  += '<option value="Limauro (Salvato), Lorraine">Limauro (Salvato), Lorraine</option>';
-            Name_options_str  += '<option value="Limbach, Janet  O">Limbach, Janet  O</option>';
-            Name_options_str  += '<option value="Linhart, Louis">Linhart, Louis</option>';
-            Name_options_str  += '<option value="Liotta (O&apos;Brien), Janet">Liotta (O&apos;Brien), Janet</option>';
-            Name_options_str  += '<option value="Lisanti (Levy), Geraldine">Lisanti (Levy), Geraldine</option>';
-            Name_options_str  += '<option value="Litka, Patricia  A">Litka, Patricia  A</option>';
-            Name_options_str  += '<option value="Livoti (DiMario), Rosemary">Livoti (DiMario), Rosemary</option>';
-            Name_options_str  += '<option value="Locicero (Cushing), Maria">Locicero (Cushing), Maria</option>';
-            Name_options_str  += '<option value="Lockman, Robert">Lockman, Robert</option>';
-            Name_options_str  += '<option value="Longeill (Sparks), Deborah">Longeill (Sparks), Deborah</option>';
-            Name_options_str  += '<option value="Lops (Jinks), Therese">Lops (Jinks), Therese</option>';
-            Name_options_str  += '<option value="Lops, Jeannine">Lops, Jeannine</option>';
-            Name_options_str  += '<option value="Loreng, Phillip">Loreng, Phillip</option>';
-            Name_options_str  += '<option value="Lucito (Radonic), Mary Jane">Lucito (Radonic), Mary Jane</option>';
-            Name_options_str  += '<option value="Ludlam, Patricia">Ludlam, Patricia</option>';
-            Name_options_str  += '<option value="Lynch, Gary">Lynch, Gary</option>';
-            Name_options_str  += '<option value="Maenza, Carol">Maenza, Carol</option>';
-            Name_options_str  += '<option value="Maher, Robert">Maher, Robert</option>';
-            Name_options_str  += '<option value="Mancuso, Gary">Mancuso, Gary</option>';
-            Name_options_str  += '<option value="Mandell, Jeffrey">Mandell, Jeffrey</option>';
-            Name_options_str  += '<option value="Mango (Kiaschko), Roseann">Mango (Kiaschko), Roseann</option>';
-            Name_options_str  += '<option value="Marchese, Joanne">Marchese, Joanne</option>';
-            Name_options_str  += '<option value="Marshall, Frank">Marshall, Frank</option>';
-            Name_options_str  += '<option value="Martell, Michael">Martell, Michael</option>';
-            Name_options_str  += '<option value="Martone (Franklin), Cynthia Sue">Martone (Franklin), Cynthia Sue</option>';
-            Name_options_str  += '<option value="Maryland (5 Classsmates)">Maryland (5 Classsmates)</option>';
-            Name_options_str  += '<option value="Mascaro (Fasanelli), Janet">Mascaro (Fasanelli), Janet</option>';
-            Name_options_str  += '<option value="Massachusetts (5 Classsmates)">Massachusetts (5 Classsmates)</option>';
-            Name_options_str  += '<option value="Masson, Suzanne">Masson, Suzanne</option>';
-            Name_options_str  += '<option value="Maxwell, Virginia">Maxwell, Virginia</option>';
-            Name_options_str  += '<option value="Mazzeo, Walter">Mazzeo, Walter</option>';
-            Name_options_str  += '<option value="McCormick, Barbara">McCormick, Barbara</option>';
-            Name_options_str  += '<option value="McInerney, Lauren Ann">McInerney, Lauren Ann</option>';
-            Name_options_str  += '<option value="McKenna, Brian">McKenna, Brian</option>';
-            Name_options_str  += '<option value="Meades (Leyh), Eileen">Meades (Leyh), Eileen</option>';
-            Name_options_str  += '<option value="Mendoza, Robert">Mendoza, Robert</option>';
-            Name_options_str  += '<option value="Merdian, William">Merdian, William</option>';
-            Name_options_str  += '<option value="Messina (Jimenez), Joann">Messina (Jimenez), Joann</option>';
-            Name_options_str  += '<option value="Michigan (1 Classsmates)">Michigan (1 Classsmates)</option>';
-            Name_options_str  += '<option value="Miller (Fischl), Joanne">Miller (Fischl), Joanne</option>';
-            Name_options_str  += '<option value="Miller, Janet Cecile">Miller, Janet Cecile</option>';
-            Name_options_str  += '<option value="Minch, Steven">Minch, Steven</option>';
-            Name_options_str  += '<option value="Mincieli (McIarney), Tina">Mincieli (McIarney), Tina</option>';
-            Name_options_str  += '<option value="Missouri (1 Classsmates)">Missouri (1 Classsmates)</option>';
-            Name_options_str  += '<option value="Mistretta, Michael">Mistretta, Michael</option>';
-            Name_options_str  += '<option value="Molica, Lauretta  M">Molica, Lauretta  M</option>';
-            Name_options_str  += '<option value="Moore, Alexander">Moore, Alexander</option>';
-            Name_options_str  += '<option value="Moore, Michael">Moore, Michael</option>';
-            Name_options_str  += '<option value="Morris, James  F">Morris, James  F</option>';
-            Name_options_str  += '<option value="Morris, Robert (Bob)">Morris, Robert (Bob)</option>';
-            Name_options_str  += '<option value="Morrison, John">Morrison, John</option>';
-            Name_options_str  += '<option value="Motyka, Henry J">Motyka, Henry J</option>';
-            Name_options_str  += '<option value="Motylinski, Patrick">Motylinski, Patrick</option>';
-            Name_options_str  += '<option value="Munoz (Furlong), Anasilia (Anne)">Munoz (Furlong), Anasilia (Anne)</option>';
-            Name_options_str  += '<option value="Murphy, Richard">Murphy, Richard</option>';
-            Name_options_str  += '<option value="Murray, Joseph">Murray, Joseph</option>';
-            Name_options_str  += '<option value="Napolitan, Dennis">Napolitan, Dennis</option>';
-            Name_options_str  += '<option value="Nasiatka, Edward J">Nasiatka, Edward J</option>';
-            Name_options_str  += '<option value="Navassardian, Hera">Navassardian, Hera</option>';
-            Name_options_str  += '<option value="Ness, Lawrence (Larry)">Ness, Lawrence (Larry)</option>';
-            Name_options_str  += '<option value="Nevada (139 Classsmates)">Nevada (139 Classsmates)</option>';
-            Name_options_str  += '<option value="New Hampshire (1 Classsmates)">New Hampshire (1 Classsmates)</option>';
-            Name_options_str  += '<option value="New Jersey (7 Classsmates)">New Jersey (7 Classsmates)</option>';
-            Name_options_str  += '<option value="Nicholas, William">Nicholas, William</option>';
-            Name_options_str  += '<option value="Nocilla, Frank">Nocilla, Frank</option>';
-            Name_options_str  += '<option value="North Carolina (9 Classsmates)">North Carolina (9 Classsmates)</option>';
-            Name_options_str  += '<option value="Notarnicola, Lynn">Notarnicola, Lynn</option>';
-            Name_options_str  += '<option value="Nussbaum, William">Nussbaum, William</option>';
-            Name_options_str  += '<option value="O&apos;Brien, Terence">O&apos;Brien, Terence</option>';
-            Name_options_str  += '<option value="O&apos;Flaherty, Patricia">O&apos;Flaherty, Patricia</option>';
-            Name_options_str  += '<option value="O&apos;Reilly, James">O&apos;Reilly, James</option>';
-            Name_options_str  += '<option value="Ohio (1 Classsmates)">Ohio (1 Classsmates)</option>';
-            Name_options_str  += '<option value="Oklahama (1 Classsmates)">Oklahama (1 Classsmates)</option>';
-            Name_options_str  += '<option value="Olsen (Walsh), Barbara Cheryl">Olsen (Walsh), Barbara Cheryl</option>';
-            Name_options_str  += '<option value="Olszewski, Joan">Olszewski, Joan</option>';
-            Name_options_str  += '<option value="Oosterom, Stephen">Oosterom, Stephen</option>';
-            Name_options_str  += '<option value="Opyr, Linda">Opyr, Linda</option>';
-            Name_options_str  += '<option value="Oster , Harold">Oster , Harold</option>';
-            Name_options_str  += '<option value="Ott, Steven (Steve) G">Ott, Steven (Steve) G</option>';
-            Name_options_str  += '<option value="Otto (Jones), Patricia">Otto (Jones), Patricia</option>';
-            Name_options_str  += '<option value="Paar, James (Jimmy)">Paar, James (Jimmy)</option>';
-            Name_options_str  += '<option value="Palenscar (Gaiser), Jeanne">Palenscar (Gaiser), Jeanne</option>';
-            Name_options_str  += '<option value="Palmieri, Barbara Ellen">Palmieri, Barbara Ellen</option>';
-            Name_options_str  += '<option value="Panchisin, Andrew">Panchisin, Andrew</option>';
-            Name_options_str  += '<option value="Panetta (Alcide), Lina">Panetta (Alcide), Lina</option>';
-            Name_options_str  += '<option value="Parente, Frank">Parente, Frank</option>';
-            Name_options_str  += '<option value="Parisen (Olmstead), Patricia">Parisen (Olmstead), Patricia</option>';
-            Name_options_str  += '<option value="Pavis, Nancy">Pavis, Nancy</option>';
-            Name_options_str  += '<option value="Payne, Robert">Payne, Robert</option>';
-            Name_options_str  += '<option value="Pelletiere, John">Pelletiere, John</option>';
-            Name_options_str  += '<option value="Pelletiere, Joseph (Joe)">Pelletiere, Joseph (Joe)</option>';
-            Name_options_str  += '<option value="Pennsylvania (13 Classsmates)">Pennsylvania (13 Classsmates)</option>';
-            Name_options_str  += '<option value="Perna, Andrew">Perna, Andrew</option>';
-            Name_options_str  += '<option value="Perrotti (Lenz), Maryann">Perrotti (Lenz), Maryann</option>';
-            Name_options_str  += '<option value="Pesa, Frank">Pesa, Frank</option>';
-            Name_options_str  += '<option value="Petardi (Tangredi), Mary Anne">Petardi (Tangredi), Mary Anne</option>';
-            Name_options_str  += '<option value="Peterson, David">Peterson, David</option>';
-            Name_options_str  += '<option value="Petrillo, Richard">Petrillo, Richard</option>';
-            Name_options_str  += '<option value="Pezzella, Vincent">Pezzella, Vincent</option>';
-            Name_options_str  += '<option value="Pignetti, John">Pignetti, John</option>';
-            Name_options_str  += '<option value="Pinto, Elissa">Pinto, Elissa</option>';
-            Name_options_str  += '<option value="Podhajecki (Murray), Wanda">Podhajecki (Murray), Wanda</option>';
-            Name_options_str  += '<option value="Poss, Fred">Poss, Fred</option>';
-            Name_options_str  += '<option value="Postal, Martin">Postal, Martin</option>';
-            Name_options_str  += '<option value="Povinelli (Feller), Susan">Povinelli (Feller), Susan</option>';
-            Name_options_str  += '<option value="Pow, Robert">Pow, Robert</option>';
-            Name_options_str  += '<option value="Quinlan (Ward), Christine">Quinlan (Ward), Christine</option>';
-            Name_options_str  += '<option value="Raab, Jane">Raab, Jane</option>';
-            Name_options_str  += '<option value="Raffetto, Patricia">Raffetto, Patricia</option>';
-            Name_options_str  += '<option value="Ragusa, John">Ragusa, John</option>';
-            Name_options_str  += '<option value="Reciniello, Dorothy">Reciniello, Dorothy</option>';
-            Name_options_str  += '<option value="Reis (Helfenstein), Deborah">Reis (Helfenstein), Deborah</option>';
-            Name_options_str  += '<option value="Rhode Island (2 Classsmates)">Rhode Island (2 Classsmates)</option>';
-            Name_options_str  += '<option value="Riccardi, Frank">Riccardi, Frank</option>';
-            Name_options_str  += '<option value="Rickmers, Ingke">Rickmers, Ingke</option>';
-            Name_options_str  += '<option value="Riley (Newman), Barbara">Riley (Newman), Barbara</option>';
-            Name_options_str  += '<option value="Risch, Lynn">Risch, Lynn</option>';
-            Name_options_str  += '<option value="Rivera (Ragusa), Marsha">Rivera (Ragusa), Marsha</option>';
-            Name_options_str  += '<option value="Robbins, Mark">Robbins, Mark</option>';
-            Name_options_str  += '<option value="Rodriguez (Mooney), Jill">Rodriguez (Mooney), Jill</option>';
-            Name_options_str  += '<option value="Rogers (Brand), Linda">Rogers (Brand), Linda</option>';
-            Name_options_str  += '<option value="Rogers, Gail">Rogers, Gail</option>';
-            Name_options_str  += '<option value="Rothenberg, Michael">Rothenberg, Michael</option>';
-            Name_options_str  += '<option value="Rotondo, Ronald">Rotondo, Ronald</option>';
-            Name_options_str  += '<option value="Rowe, Thomas">Rowe, Thomas</option>';
-            Name_options_str  += '<option value="Russo, Joseph">Russo, Joseph</option>';
-            Name_options_str  += '<option value="Russo, Michael (Vito)">Russo, Michael (Vito)</option>';
-            Name_options_str  += '<option value="Russo, William (Billy)">Russo, William (Billy)</option>';
-            Name_options_str  += '<option value="Salajka (Miller), Joan">Salajka (Miller), Joan</option>';
-            Name_options_str  += '<option value="Salmaggi, Henry">Salmaggi, Henry</option>';
-            Name_options_str  += '<option value="Salvagionne (Moore), Doris">Salvagionne (Moore), Doris</option>';
-            Name_options_str  += '<option value="Salvato, Paul">Salvato, Paul</option>';
-            Name_options_str  += '<option value="Sartor, Michelle">Sartor, Michelle</option>';
-            Name_options_str  += '<option value="Sava (Brown), Nancy">Sava (Brown), Nancy</option>';
-            Name_options_str  += '<option value="Schebendach (McLaughlin), Barbara">Schebendach (McLaughlin), Barbara</option>';
-            Name_options_str  += '<option value="Schimmenti, Lorraine">Schimmenti, Lorraine</option>';
-            Name_options_str  += '<option value="Schirano, Richard">Schirano, Richard</option>';
-            Name_options_str  += '<option value="Schlegel (Vennard), Barbara">Schlegel (Vennard), Barbara</option>';
-            Name_options_str  += '<option value="Scott (Ciuffo), Maureen">Scott (Ciuffo), Maureen</option>';
-            Name_options_str  += '<option value="Seifert (Leber), Susan">Seifert (Leber), Susan</option>';
-            Name_options_str  += '<option value="Serry, John">Serry, John</option>';
-            Name_options_str  += '<option value="Sesko (Nazarechuk), Diane Carole">Sesko (Nazarechuk), Diane Carole</option>';
-            Name_options_str  += '<option value="Sgro, Kathryn">Sgro, Kathryn</option>';
-            Name_options_str  += '<option value="Sills (Burke), Ellen">Sills (Burke), Ellen</option>';
-            Name_options_str  += '<option value="Simonelli (Braun), Frances">Simonelli (Braun), Frances</option>';
-            Name_options_str  += '<option value="Sinatra, Glenn">Sinatra, Glenn</option>';
-            Name_options_str  += '<option value="Sinisgalli (Massaro), Barbara">Sinisgalli (Massaro), Barbara</option>';
-            Name_options_str  += '<option value="Slaski (McClement), Maryjane">Slaski (McClement), Maryjane</option>';
-            Name_options_str  += '<option value="Smith (Robbins), Patricia">Smith (Robbins), Patricia</option>';
-            Name_options_str  += '<option value="Smith, Majorie">Smith, Majorie</option>';
-            Name_options_str  += '<option value="Sorace, Lawrence">Sorace, Lawrence</option>';
-            Name_options_str  += '<option value="Sostak (Vitucci), Constance">Sostak (Vitucci), Constance</option>';
-            Name_options_str  += '<option value="South Carolina (7 Classsmates)">South Carolina (7 Classsmates)</option>';
-            Name_options_str  += '<option value="Souther, Raymond">Souther, Raymond</option>';
-            Name_options_str  += '<option value="Spenceley, Robert">Spenceley, Robert</option>';
-            Name_options_str  += '<option value="Spenceley, William">Spenceley, William</option>';
-            Name_options_str  += '<option value="Spinella (Lederman), Susan">Spinella (Lederman), Susan</option>';
-            Name_options_str  += '<option value="State (1 Classsmates)">State (1 Classsmates)</option>';
-            Name_options_str  += '<option value="State (3 Classsmates)">State (3 Classsmates)</option>';
-            Name_options_str  += '<option value="Sullivan (Voegler), Patricia">Sullivan (Voegler), Patricia</option>';
-            Name_options_str  += '<option value="Sweeney, Kevin">Sweeney, Kevin</option>';
-            Name_options_str  += '<option value="Swystun, Theodore">Swystun, Theodore</option>';
-            Name_options_str  += '<option value="Taylor, Robert">Taylor, Robert</option>';
-            Name_options_str  += '<option value="Tedone, Louis">Tedone, Louis</option>';
-            Name_options_str  += '<option value="Tempone (Von Heyn), Margaret">Tempone (Von Heyn), Margaret</option>';
-            Name_options_str  += '<option value="Tennessee (6 Classsmates)">Tennessee (6 Classsmates)</option>';
-            Name_options_str  += '<option value="Texas (1 Classsmates)">Texas (1 Classsmates)</option>';
-            Name_options_str  += '<option value="Timmerman (Marigliano), Marilee">Timmerman (Marigliano), Marilee</option>';
-            Name_options_str  += '<option value="Tirpak, Gerard">Tirpak, Gerard</option>';
-            Name_options_str  += '<option value="Towey (Metzner), Eileen">Towey (Metzner), Eileen</option>';
-            Name_options_str  += '<option value="Tramposch, Alan">Tramposch, Alan</option>';
-            Name_options_str  += '<option value="Trapani, Geraldine">Trapani, Geraldine</option>';
-            Name_options_str  += '<option value="Trepeta M. D., Richard W">Trepeta M. D., Richard W</option>';
-            Name_options_str  += '<option value="Trimboli, Elyse">Trimboli, Elyse</option>';
-            Name_options_str  += '<option value="Tronto, Marilise">Tronto, Marilise</option>';
-            Name_options_str  += '<option value="Truzzolino, Robert">Truzzolino, Robert</option>';
-            Name_options_str  += '<option value="Turko, Patricia">Turko, Patricia</option>';
-            Name_options_str  += '<option value="Van Siclen, Jonathan">Van Siclen, Jonathan</option>';
-            Name_options_str  += '<option value="Vesneski, Daniel">Vesneski, Daniel</option>';
-            Name_options_str  += '<option value="Victori, David">Victori, David</option>';
-            Name_options_str  += '<option value="Virginia (4 Classsmates)">Virginia (4 Classsmates)</option>';
-            Name_options_str  += '<option value="Wallis, Thomas (Tommy)">Wallis, Thomas (Tommy)</option>';
-            Name_options_str  += '<option value="Walters (Palecek), Mary Anne">Walters (Palecek), Mary Anne</option>';
-            Name_options_str  += '<option value="Warren, Gail">Warren, Gail</option>';
-            Name_options_str  += '<option value="Watson (Snopkowski), Patricia">Watson (Snopkowski), Patricia</option>';
-            Name_options_str  += '<option value="Welker (Threadgill), Carolyn">Welker (Threadgill), Carolyn</option>';
-            Name_options_str  += '<option value="Wheeler, Douglas Joseph">Wheeler, Douglas Joseph</option>';
-            Name_options_str  += '<option value="Wilder (Cave), Nancy">Wilder (Cave), Nancy</option>';
-            Name_options_str  += '<option value="Wisconsin (1 Classsmates)">Wisconsin (1 Classsmates)</option>';
-            Name_options_str  += '<option value="Wojcik (Parraga), Barbara">Wojcik (Parraga), Barbara</option>';
-            Name_options_str  += '<option value="Wolber, Thomas">Wolber, Thomas</option>';
-            Name_options_str  += '<option value="Woll (Walsh), Cynthia">Woll (Walsh), Cynthia</option>';
-            Name_options_str  += '<option value="Yablonski, Michael">Yablonski, Michael</option>';
-            Name_options_str  += '<option value="Yanushka, Eileen">Yanushka, Eileen</option>';
-            Name_options_str  += '<option value="Yodis, Anne">Yodis, Anne</option>';
-            Name_options_str  += '<option value="Zapke, Arthur">Zapke, Arthur</option>';
-            Name_options_str  += '<option value="Zaremba (Donovan), Judith">Zaremba (Donovan), Judith</option>';
-            Name_options_str  += '<option value="Zawaski (Johnson), Christine">Zawaski (Johnson), Christine</option>';
-            Name_options_str  += '<option value="Zelinski (Zapke), Angela">Zelinski (Zapke), Angela</option>';
-            Name_options_str  += '<option value="Zoltowski, James">Zoltowski, James</option>';
-            Name_options_str  += '<option value="Zuchelli (Mollitor), Marianne">Zuchelli (Mollitor), Marianne</option>';
-            Name_options_str  += '<option value="Zukas, Linda">Zukas, Linda</option>';
-            Name_options_str  += '<option value="Zulkofske (Keller), Rita">Zulkofske (Keller), Rita</option>';
-            Name_options_str  += '<option value="Zupka (Ludder), Marie">Zupka (Ludder), Marie</option>';
-            Name_options_str  += '<option value="Zwillinger, Alan">Zwillinger, Alan</option>';
-            sel_Name.innerHTML = Name_options_str;
-            div_Name.appendChild(sel_Name);
-            var lab_Name = document.createElement('div');
-            lab_Name.innerHTML = 'Name';
-            lab_Name.className = 'filterlabel';
-            div_Name.appendChild(lab_Name);
-            var reset_Name = document.createElement('div');
-            reset_Name.innerHTML = 'clear filter';
-            reset_Name.className = 'filterlabel';
-            reset_Name.onclick = function() {
-                var options = document.getElementById("sel_Name").options;
-                for (var i=0; i < options.length; i++) {
-                    options[i].selected = false;
-                }
-                filterFunc();
-            };
-            div_Name.appendChild(reset_Name);
-            document.getElementById("menu").appendChild(
-                document.createElement("div"));
-            var div_Deceased = document.createElement('div');
-            div_Deceased.id = "div_Deceased";
-            div_Deceased.className= "filterselect";
-            document.getElementById("menu").appendChild(div_Deceased);
-            sel_Deceased = document.createElement('select');
-            sel_Deceased.multiple = true;
-            sel_Deceased.size = 3;
-            sel_Deceased.id = "sel_Deceased";
-            var Deceased_options_str = "<option value='' unselected></option>";
-            sel_Deceased.onchange = function(){filterFunc()};
-            Deceased_options_str  += '<option value="Deceased">Deceased</option>';
-            Deceased_options_str  += '<option value="N/A">N/A</option>';
-            Deceased_options_str  += '<option value="Still Alive & Well">Still Alive & Well</option>';
-            sel_Deceased.innerHTML = Deceased_options_str;
-            div_Deceased.appendChild(sel_Deceased);
-            var lab_Deceased = document.createElement('div');
-            lab_Deceased.innerHTML = 'Deceased';
-            lab_Deceased.className = 'filterlabel';
-            div_Deceased.appendChild(lab_Deceased);
-            var reset_Deceased = document.createElement('div');
-            reset_Deceased.innerHTML = 'clear filter';
-            reset_Deceased.className = 'filterlabel';
-            reset_Deceased.onclick = function() {
-                var options = document.getElementById("sel_Deceased").options;
-                for (var i=0; i < options.length; i++) {
-                    options[i].selected = false;
-                }
-                filterFunc();
-            };
-            div_Deceased.appendChild(reset_Deceased);
-        resetLabels([layer_ClassStateTotals_6,layer_ClasswNames_8]);
+        resetLabels([layer_ClassStateTotals_6,layer_ClassClustered_7,layer_ClasswNames_8,layer_Class_9]);
         map.on("zoomend", function(){
-            resetLabels([layer_ClassStateTotals_6,layer_ClasswNames_8]);
+            resetLabels([layer_ClassStateTotals_6,layer_ClassClustered_7,layer_ClasswNames_8,layer_Class_9]);
         });
         map.on("layeradd", function(){
-            resetLabels([layer_ClassStateTotals_6,layer_ClasswNames_8]);
+            resetLabels([layer_ClassStateTotals_6,layer_ClassClustered_7,layer_ClasswNames_8,layer_Class_9]);
         });
         map.on("layerremove", function(){
-            resetLabels([layer_ClassStateTotals_6,layer_ClasswNames_8]);
+            resetLabels([layer_ClassStateTotals_6,layer_ClassClustered_7,layer_ClasswNames_8,layer_Class_9]);
         });
         </script>
     </body>
