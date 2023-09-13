@@ -22,7 +22,7 @@
             margin: 0;
         }
         </style>
-        <title>NHP Class of 1971 Directory v10-IP</title>
+        <title>NHP Class of 1971 Directory v21</title>
     </head>
     <body>
         <div id="map">
@@ -64,7 +64,7 @@
             highlightLayer.openPopup();
         }
         var map = L.map('map', {
-            zoomControl:true, maxZoom:24, minZoom:1
+            zoomControl:true, maxZoom:28, minZoom:1
         })
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
@@ -84,7 +84,7 @@
             opacity: 1.0,
             attribution: '',
             minZoom: 1,
-            maxZoom: 24,
+            maxZoom: 28,
             minNativeZoom: 0,
             maxNativeZoom: 20
         });
@@ -96,7 +96,7 @@
             opacity: 1.0,
             attribution: '<a href="https://www.google.at/permissions/geoguidelines/attr-guide.html">Map data ©2015 Google</a>',
             minZoom: 1,
-            maxZoom: 24,
+            maxZoom: 28,
             minNativeZoom: 0,
             maxNativeZoom: 20
         });
@@ -108,7 +108,7 @@
             opacity: 1.0,
             attribution: '<a href="https://www.google.at/permissions/geoguidelines/attr-guide.html">Map data ©2015 Google</a>',
             minZoom: 1,
-            maxZoom: 24,
+            maxZoom: 28,
             minNativeZoom: 0,
             maxNativeZoom: 20
         });
@@ -120,7 +120,7 @@
             opacity: 1.0,
             attribution: '<a href="https://www.google.at/permissions/geoguidelines/attr-guide.html">Map data ©2015 Google</a>',
             minZoom: 1,
-            maxZoom: 24,
+            maxZoom: 28,
             minNativeZoom: 0,
             maxNativeZoom: 20
         });
@@ -132,19 +132,19 @@
             opacity: 1.0,
             attribution: '<a href="https://www.openstreetmap.org/copyright">© OpenStreetMap contributors, CC-BY-SA</a>',
             minZoom: 1,
-            maxZoom: 24,
+            maxZoom: 28,
             minNativeZoom: 0,
             maxNativeZoom: 19
         });
         layer_MapOSMRoad_4;
         map.createPane('pane_MapOutline_5');
         map.getPane('pane_MapOutline_5').style.zIndex = 405;
-        var layer_MapOutline_5 = L.tileLayer('https://a.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png', {
+        var layer_MapOutline_5 = L.tileLayer('https://a.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
             pane: 'pane_MapOutline_5',
             opacity: 1.0,
             attribution: '<a href="https://cartodb.com/basemaps/">Map tiles by CartoDB, under CC BY 3.0. Data by OpenStreetMap, under ODbL.</a>',
             minZoom: 1,
-            maxZoom: 24,
+            maxZoom: 28,
             minNativeZoom: 0,
             maxNativeZoom: 20
         });
@@ -168,16 +168,16 @@
             });
             var popupContent = '<table>\
                     <tr>\
-                        <th scope="row">State and # of Classmates</th>\
+                        <th scope="row">Name</th>\
                         <td>' + (feature.properties['Map-Name'] !== null ? autolinker.link(feature.properties['Map-Name'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">State Name</th>\
-                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">State</th>\
+                        <td>' + (feature.properties['State'] !== null ? autolinker.link(feature.properties['State'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">State Abbreviation</th>\
-                        <td>' + (feature.properties['State'] !== null ? autolinker.link(feature.properties['State'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">State Total</th>\
+                        <td>' + (feature.properties['State Total'] !== null ? autolinker.link(feature.properties['State Total'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
@@ -186,16 +186,16 @@
         function style_ClassStateTotals_6_0() {
             return {
                 pane: 'pane_ClassStateTotals_6',
-                radius: 8.0,
+                radius: 4.0,
                 opacity: 1,
-                color: 'rgba(50,87,128,1.0)',
+                color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 2.0,
+                weight: 1,
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(72,123,182,1.0)',
+                fillColor: 'rgba(229,182,54,1.0)',
                 interactive: true,
             }
         }
@@ -240,32 +240,20 @@
             });
             var popupContent = '<table>\
                     <tr>\
-                        <th scope="row">State Total</th>\
-                        <td>' + (feature.properties['State Total'] !== null ? autolinker.link(feature.properties['State Total'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Map-Name</th>\
+                        <th scope="row">Name</th>\
                         <td>' + (feature.properties['Map-Name'] !== null ? autolinker.link(feature.properties['Map-Name'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Name</th>\
-                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Last Name</th>\
+                        <td>' + (feature.properties['Name-Last'] !== null ? autolinker.link(feature.properties['Name-Last'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Last</th>\
-                        <td>' + (feature.properties['Last'] !== null ? autolinker.link(feature.properties['Last'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">First</th>\
-                        <td>' + (feature.properties['First'] !== null ? autolinker.link(feature.properties['First'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Middle Name</th>\
-                        <td>' + (feature.properties['Middle Name'] !== null ? autolinker.link(feature.properties['Middle Name'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">First Name</th>\
+                        <td>' + (feature.properties['Name-First'] !== null ? autolinker.link(feature.properties['Name-First'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Married Name</th>\
-                        <td>' + (feature.properties['Married Name'] !== null ? autolinker.link(feature.properties['Married Name'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Name-Married'] !== null ? autolinker.link(feature.properties['Name-Married'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Street</th>\
@@ -280,16 +268,12 @@
                         <td>' + (feature.properties['State'] !== null ? autolinker.link(feature.properties['State'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Zip Code</th>\
+                        <th scope="row">Zipcode</th>\
                         <td>' + (feature.properties['Map-Zipcode'] !== null ? autolinker.link(feature.properties['Map-Zipcode'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">eMail Address #1</th>\
+                        <th scope="row">eMail Address</th>\
                         <td>' + (feature.properties['Map-eMail Address-1'] !== null ? autolinker.link(feature.properties['Map-eMail Address-1'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">eMail Address #2</th>\
-                        <td>' + (feature.properties['Map-eMail Address-2'] !== null ? autolinker.link(feature.properties['Map-eMail Address-2'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Cell Phone</th>\
@@ -304,11 +288,11 @@
                         <td>' + (feature.properties['Group-Classmates'] !== null ? autolinker.link(feature.properties['Group-Classmates'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Deceased?</th>\
+                        <th scope="row">Deceased</th>\
                         <td>' + (feature.properties['Deceased'] !== null ? autolinker.link(feature.properties['Deceased'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Primary or Secondary Address?</th>\
+                        <th scope="row">Primary/Secondary</th>\
                         <td>' + (feature.properties['Primary/Secondary'] !== null ? autolinker.link(feature.properties['Primary/Secondary'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
@@ -327,7 +311,7 @@
                 weight: 1,
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(190,207,80,1.0)',
+                fillColor: 'rgba(229,182,54,1.0)',
                 interactive: true,
             }
         }
@@ -372,32 +356,20 @@
             });
             var popupContent = '<table>\
                     <tr>\
-                        <th scope="row">State Total</th>\
-                        <td>' + (feature.properties['State Total'] !== null ? autolinker.link(feature.properties['State Total'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Map-Name</th>\
+                        <th scope="row">Name</th>\
                         <td>' + (feature.properties['Map-Name'] !== null ? autolinker.link(feature.properties['Map-Name'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Name</th>\
-                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Last Name</th>\
+                        <td>' + (feature.properties['Name-Last'] !== null ? autolinker.link(feature.properties['Name-Last'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Last</th>\
-                        <td>' + (feature.properties['Last'] !== null ? autolinker.link(feature.properties['Last'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">First</th>\
-                        <td>' + (feature.properties['First'] !== null ? autolinker.link(feature.properties['First'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Middle Name</th>\
-                        <td>' + (feature.properties['Middle Name'] !== null ? autolinker.link(feature.properties['Middle Name'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">First Name</th>\
+                        <td>' + (feature.properties['Name-First'] !== null ? autolinker.link(feature.properties['Name-First'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Married Name</th>\
-                        <td>' + (feature.properties['Married Name'] !== null ? autolinker.link(feature.properties['Married Name'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Name-Married'] !== null ? autolinker.link(feature.properties['Name-Married'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Street</th>\
@@ -412,16 +384,12 @@
                         <td>' + (feature.properties['State'] !== null ? autolinker.link(feature.properties['State'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Zip Code</th>\
+                        <th scope="row">Zipcode</th>\
                         <td>' + (feature.properties['Map-Zipcode'] !== null ? autolinker.link(feature.properties['Map-Zipcode'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">eMail Address #1</th>\
+                        <th scope="row">eMail Address</th>\
                         <td>' + (feature.properties['Map-eMail Address-1'] !== null ? autolinker.link(feature.properties['Map-eMail Address-1'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">eMail Address #2</th>\
-                        <td>' + (feature.properties['Map-eMail Address-2'] !== null ? autolinker.link(feature.properties['Map-eMail Address-2'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Cell Phone</th>\
@@ -436,11 +404,11 @@
                         <td>' + (feature.properties['Group-Classmates'] !== null ? autolinker.link(feature.properties['Group-Classmates'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Deceased?</th>\
+                        <th scope="row">Deceased</th>\
                         <td>' + (feature.properties['Deceased'] !== null ? autolinker.link(feature.properties['Deceased'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Primary or Secondary Address?</th>\
+                        <th scope="row">Primary/Secondary</th>\
                         <td>' + (feature.properties['Primary/Secondary'] !== null ? autolinker.link(feature.properties['Primary/Secondary'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
@@ -459,7 +427,7 @@
                 weight: 1,
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(190,207,80,1.0)',
+                fillColor: 'rgba(229,182,54,1.0)',
                 interactive: true,
             }
         }
@@ -500,32 +468,20 @@
             });
             var popupContent = '<table>\
                     <tr>\
-                        <th scope="row">State Total</th>\
-                        <td>' + (feature.properties['State Total'] !== null ? autolinker.link(feature.properties['State Total'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Map-Name</th>\
+                        <th scope="row">Name</th>\
                         <td>' + (feature.properties['Map-Name'] !== null ? autolinker.link(feature.properties['Map-Name'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Name</th>\
-                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Last Name</th>\
+                        <td>' + (feature.properties['Name-Last'] !== null ? autolinker.link(feature.properties['Name-Last'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Last</th>\
-                        <td>' + (feature.properties['Last'] !== null ? autolinker.link(feature.properties['Last'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">First</th>\
-                        <td>' + (feature.properties['First'] !== null ? autolinker.link(feature.properties['First'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Middle Name</th>\
-                        <td>' + (feature.properties['Middle Name'] !== null ? autolinker.link(feature.properties['Middle Name'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">First Name</th>\
+                        <td>' + (feature.properties['Name-First'] !== null ? autolinker.link(feature.properties['Name-First'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Married Name</th>\
-                        <td>' + (feature.properties['Married Name'] !== null ? autolinker.link(feature.properties['Married Name'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Name-Married'] !== null ? autolinker.link(feature.properties['Name-Married'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Street</th>\
@@ -540,16 +496,12 @@
                         <td>' + (feature.properties['State'] !== null ? autolinker.link(feature.properties['State'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Zip Code</th>\
+                        <th scope="row">Zipcode</th>\
                         <td>' + (feature.properties['Map-Zipcode'] !== null ? autolinker.link(feature.properties['Map-Zipcode'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">eMail Address #1</th>\
+                        <th scope="row">eMail Address</th>\
                         <td>' + (feature.properties['Map-eMail Address-1'] !== null ? autolinker.link(feature.properties['Map-eMail Address-1'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">eMail Address #2</th>\
-                        <td>' + (feature.properties['Map-eMail Address-2'] !== null ? autolinker.link(feature.properties['Map-eMail Address-2'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Cell Phone</th>\
@@ -564,11 +516,11 @@
                         <td>' + (feature.properties['Group-Classmates'] !== null ? autolinker.link(feature.properties['Group-Classmates'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Deceased?</th>\
+                        <th scope="row">Deceased</th>\
                         <td>' + (feature.properties['Deceased'] !== null ? autolinker.link(feature.properties['Deceased'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Primary or Secondary Address?</th>\
+                        <th scope="row">Primary/Secondary</th>\
                         <td>' + (feature.properties['Primary/Secondary'] !== null ? autolinker.link(feature.properties['Primary/Secondary'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
@@ -587,7 +539,7 @@
                 weight: 1,
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(190,207,80,1.0)',
+                fillColor: 'rgba(229,182,54,1.0)',
                 interactive: true,
             }
         }
@@ -618,7 +570,7 @@
                 return this._div;
             };
             title.update = function () {
-                this._div.innerHTML = '<h2>NHP Class of 1971 Directory v10-IP</h2>';
+                this._div.innerHTML = '<h2>NHP Class of 1971 Directory v21</h2>';
             };
             title.addTo(map);
             var abstract = new L.Control({'position':'topright'});
@@ -639,7 +591,7 @@
                 abstract.show = function () {
                     this._div.classList.remove("abstract");
                     this._div.classList.add("abstractUncollapsed");
-                    this._div.innerHTML = 'NHP Class of 1971 Directory:<br /><br />Filters:<br />When using filters on on the right side panels, set:<br />    - "The Class of 1971-Individuals" = Selected<br />    - "The Class of 1971-Clustered"  = NOT Selected<br /><br />When more than 1 person lives at the same town, set:<br />    - "The Class of 1971-Individuals" = NOT Selected<br />    - "The Class of 1971-Clustered"  =  Selected<br /><br />Map Format:<br />Select Only 1 Map Format (If multiple map formats are selected, the first one takes precedence)';
+                    this._div.innerHTML = 'NHP Class of 1971 Directory:<br /><br />Radio Button Section has essentially 2 sections:<br />  - First Section (Top 4 Radio Buttons) control "Who/What" is displayed on the map.<br />  - Second Section (Bottom 6 Radio Buttons) control the map "Format".<br /><br />Note: In general, select only 1 Radio Button from each section<br />    - Map Format: If multiple map formats are selected. the first one takes precedence.<br /><br />Filters: (On far right)<br />  - When multiple Filters are selected, they work in conjunction as a composite filter. <br /><br />When more than 1 person lives at the same town, set:<br />    - "The Class of 1971-Individuals" = NOT Selected<br />    - "The Class of 1971-Clustered"  =  Selected<br /><br />';
             };
             abstract.addTo(map);
         var osmGeocoder = new L.Control.Geocoder({
@@ -669,12 +621,25 @@
               i++;
         });
         var i = 0;
+        layer_ClassClustered_7.eachLayer(function(layer) {
+            var context = {
+                feature: layer.feature,
+                variables: {}
+            };
+            layer.bindTooltip((layer.feature.properties['Map-Name'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['Map-Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_ClassClustered_7'});
+            labels.push(layer);
+            totalMarkers += 1;
+              layer.added = true;
+              addLabel(layer, i);
+              i++;
+        });
+        var i = 0;
         layer_ClasswNames_8.eachLayer(function(layer) {
             var context = {
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['Name'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_ClasswNames_8'});
+            layer.bindTooltip((layer.feature.properties['Map-Name'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['Map-Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_ClasswNames_8'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
@@ -685,7 +650,7 @@
             layer: layer_Class_9,
             initial: false,
             hideMarkerOnCollapse: true,
-            propertyName: 'Name'}));
+            propertyName: 'Map-Name'}));
         document.getElementsByClassName('search-button')[0].className +=
          ' fa fa-binoculars';
         var mapDiv = document.getElementById('map');
@@ -707,7 +672,7 @@
         document.getElementById("all").appendChild(col1);
         document.getElementById("all").appendChild(col2);
         col1.appendChild(mapDiv)
-        var Filters = {"Deceased": "str","Primary/Secondary": "str","Group-Classmates": "str","State": "str"};
+        var Filters = {"Deceased": "str","Map-Name": "str","State": "str","Group-Classmates": "str","Primary/Secondary": "str"};
         function filterFunc() {
           map.eachLayer(function(lyr){
           if ("options" in lyr && "dataVar" in lyr["options"]){
@@ -808,12 +773,25 @@
               i++;
         });
         var i = 0;
+        layer_ClassClustered_7.eachLayer(function(layer) {
+            var context = {
+                feature: layer.feature,
+                variables: {}
+            };
+            layer.bindTooltip((layer.feature.properties['Map-Name'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['Map-Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_ClassClustered_7'});
+            labels.push(layer);
+            totalMarkers += 1;
+              layer.added = true;
+              addLabel(layer, i);
+              i++;
+        });
+        var i = 0;
         layer_ClasswNames_8.eachLayer(function(layer) {
             var context = {
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['Name'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_ClasswNames_8'});
+            layer.bindTooltip((layer.feature.properties['Map-Name'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['Map-Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_ClasswNames_8'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
@@ -857,36 +835,465 @@
             div_Deceased.appendChild(reset_Deceased);
             document.getElementById("menu").appendChild(
                 document.createElement("div"));
-            var div_PrimarySecondary = document.createElement('div');
-            div_PrimarySecondary.id = "div_PrimarySecondary";
-            div_PrimarySecondary.className= "filterselect";
-            document.getElementById("menu").appendChild(div_PrimarySecondary);
-            sel_PrimarySecondary = document.createElement('select');
-            sel_PrimarySecondary.multiple = true;
-            sel_PrimarySecondary.size = 3;
-            sel_PrimarySecondary.id = "sel_PrimarySecondary";
-            var PrimarySecondary_options_str = "<option value='' unselected></option>";
-            sel_PrimarySecondary.onchange = function(){filterFunc()};
-            PrimarySecondary_options_str  += '<option value="N/A">N/A</option>';
-            PrimarySecondary_options_str  += '<option value="Primary Address">Primary Address</option>';
-            PrimarySecondary_options_str  += '<option value="Secondary Address">Secondary Address</option>';
-            sel_PrimarySecondary.innerHTML = PrimarySecondary_options_str;
-            div_PrimarySecondary.appendChild(sel_PrimarySecondary);
-            var lab_PrimarySecondary = document.createElement('div');
-            lab_PrimarySecondary.innerHTML = 'Primary/Secondary';
-            lab_PrimarySecondary.className = 'filterlabel';
-            div_PrimarySecondary.appendChild(lab_PrimarySecondary);
-            var reset_PrimarySecondary = document.createElement('div');
-            reset_PrimarySecondary.innerHTML = 'clear filter';
-            reset_PrimarySecondary.className = 'filterlabel';
-            reset_PrimarySecondary.onclick = function() {
-                var options = document.getElementById("sel_PrimarySecondary").options;
+            var div_MapName = document.createElement('div');
+            div_MapName.id = "div_MapName";
+            div_MapName.className= "filterselect";
+            document.getElementById("menu").appendChild(div_MapName);
+            sel_MapName = document.createElement('select');
+            sel_MapName.multiple = true;
+            sel_MapName.size = 10;
+            sel_MapName.id = "sel_MapName";
+            var MapName_options_str = "<option value='' unselected></option>";
+            sel_MapName.onchange = function(){filterFunc()};
+            MapName_options_str  += '<option value="Alfino, Philip">Alfino, Philip</option>';
+            MapName_options_str  += '<option value="Alverson, Jay">Alverson, Jay</option>';
+            MapName_options_str  += '<option value="Ammon, Robert">Ammon, Robert</option>';
+            MapName_options_str  += '<option value="Amodeo , Vincent">Amodeo , Vincent</option>';
+            MapName_options_str  += '<option value="Amore (Davis), Maria">Amore (Davis), Maria</option>';
+            MapName_options_str  += '<option value="Andersen (Sumutka), Susan">Andersen (Sumutka), Susan</option>';
+            MapName_options_str  += '<option value="Arizona (56 Classmates)">Arizona (56 Classmates)</option>';
+            MapName_options_str  += '<option value="Arkansas (1 Classmates)">Arkansas (1 Classmates)</option>';
+            MapName_options_str  += '<option value="Armband (Henkel), Abbe">Armband (Henkel), Abbe</option>';
+            MapName_options_str  += '<option value="Atsalis, Louis">Atsalis, Louis</option>';
+            MapName_options_str  += '<option value="Avellini, Robert (Bob)">Avellini, Robert (Bob)</option>';
+            MapName_options_str  += '<option value="Bader (Wise), Randi">Bader (Wise), Randi</option>';
+            MapName_options_str  += '<option value="Baierlein (Melvin), Barbara">Baierlein (Melvin), Barbara</option>';
+            MapName_options_str  += '<option value="Banahan, Susan">Banahan, Susan</option>';
+            MapName_options_str  += '<option value="Baricevac, Thomas">Baricevac, Thomas</option>';
+            MapName_options_str  += '<option value="Barry, Marco">Barry, Marco</option>';
+            MapName_options_str  += '<option value="Barthelmes, Edmund">Barthelmes, Edmund</option>';
+            MapName_options_str  += '<option value="Bartkowski (Dern), Patricia">Bartkowski (Dern), Patricia</option>';
+            MapName_options_str  += '<option value="Bay, Peter">Bay, Peter</option>';
+            MapName_options_str  += '<option value="Beck (Brodesky), Patricia">Beck (Brodesky), Patricia</option>';
+            MapName_options_str  += '<option value="Beebe (Thomas), Donna">Beebe (Thomas), Donna</option>';
+            MapName_options_str  += '<option value="Belyus, Paul">Belyus, Paul</option>';
+            MapName_options_str  += '<option value="Berg, Robert">Berg, Robert</option>';
+            MapName_options_str  += '<option value="Bernauer, Wayne">Bernauer, Wayne</option>';
+            MapName_options_str  += '<option value="Bernstein, Andrew">Bernstein, Andrew</option>';
+            MapName_options_str  += '<option value="Bertolini (Porr), Tina">Bertolini (Porr), Tina</option>';
+            MapName_options_str  += '<option value="Biancanelli, Joseph (Joe)">Biancanelli, Joseph (Joe)</option>';
+            MapName_options_str  += '<option value="Boardman, James">Boardman, James</option>';
+            MapName_options_str  += '<option value="Boch, Richard">Boch, Richard</option>';
+            MapName_options_str  += '<option value="Bogart (Hurlburt), Helen">Bogart (Hurlburt), Helen</option>';
+            MapName_options_str  += '<option value="Boland, Mary Lou">Boland, Mary Lou</option>';
+            MapName_options_str  += '<option value="Bonnevie, John">Bonnevie, John</option>';
+            MapName_options_str  += '<option value="Bradford, Raymond">Bradford, Raymond</option>';
+            MapName_options_str  += '<option value="Broderick (Higgins), Anne">Broderick (Higgins), Anne</option>';
+            MapName_options_str  += '<option value="Brown, Frederic (Fred)">Brown, Frederic (Fred)</option>';
+            MapName_options_str  += '<option value="Browne (Schlegelmilch), Maryanne">Browne (Schlegelmilch), Maryanne</option>';
+            MapName_options_str  += '<option value="Buehler (Dick), Barbara">Buehler (Dick), Barbara</option>';
+            MapName_options_str  += '<option value="Bungarz, Richard">Bungarz, Richard</option>';
+            MapName_options_str  += '<option value="Burke, Michael">Burke, Michael</option>';
+            MapName_options_str  += '<option value="Calabrese, Ralph">Calabrese, Ralph</option>';
+            MapName_options_str  += '<option value="California (7 Classmates)">California (7 Classmates)</option>';
+            MapName_options_str  += '<option value="Camarda (Riccio), Francine">Camarda (Riccio), Francine</option>';
+            MapName_options_str  += '<option value="Cappuccio, Randy">Cappuccio, Randy</option>';
+            MapName_options_str  += '<option value="Carini, Daniel">Carini, Daniel</option>';
+            MapName_options_str  += '<option value="Carlin (Hartlage), Eileen">Carlin (Hartlage), Eileen</option>';
+            MapName_options_str  += '<option value="Carroll, Donald">Carroll, Donald</option>';
+            MapName_options_str  += '<option value="Carter, Leward">Carter, Leward</option>';
+            MapName_options_str  += '<option value="Castoria, Daniel">Castoria, Daniel</option>';
+            MapName_options_str  += '<option value="Catranbone (Rebstock), Cheryl">Catranbone (Rebstock), Cheryl</option>';
+            MapName_options_str  += '<option value="Chao, Mabel">Chao, Mabel</option>';
+            MapName_options_str  += '<option value="Chmielewski (Dara), Helen">Chmielewski (Dara), Helen</option>';
+            MapName_options_str  += '<option value="Choinski, Joseph">Choinski, Joseph</option>';
+            MapName_options_str  += '<option value="Christenson, Gary">Christenson, Gary</option>';
+            MapName_options_str  += '<option value="Colamarino, Robert">Colamarino, Robert</option>';
+            MapName_options_str  += '<option value="Colefield, Steven">Colefield, Steven</option>';
+            MapName_options_str  += '<option value="Coleman, Paul A.">Coleman, Paul A.</option>';
+            MapName_options_str  += '<option value="Colorado (3 Classmates)">Colorado (3 Classmates)</option>';
+            MapName_options_str  += '<option value="Connecticut (8 Classmates)">Connecticut (8 Classmates)</option>';
+            MapName_options_str  += '<option value="Cornelius, Lester">Cornelius, Lester</option>';
+            MapName_options_str  += '<option value="Cosenza, Victor">Cosenza, Victor</option>';
+            MapName_options_str  += '<option value="Croker, Virginia">Croker, Virginia</option>';
+            MapName_options_str  += '<option value="Cuadra, Maria">Cuadra, Maria</option>';
+            MapName_options_str  += '<option value="Cummings (Lott), Kathleen">Cummings (Lott), Kathleen</option>';
+            MapName_options_str  += '<option value="D&apos;Alessandro, Steven">D&apos;Alessandro, Steven</option>';
+            MapName_options_str  += '<option value="D&apos;Andrea, Vincent">D&apos;Andrea, Vincent</option>';
+            MapName_options_str  += '<option value="D&apos;Angelo, Nanci">D&apos;Angelo, Nanci</option>';
+            MapName_options_str  += '<option value="D&apos;Antoni, Maria">D&apos;Antoni, Maria</option>';
+            MapName_options_str  += '<option value="D&apos;Oria (Bainlardi), Theresa">D&apos;Oria (Bainlardi), Theresa</option>';
+            MapName_options_str  += '<option value="Dahl, Laurence">Dahl, Laurence</option>';
+            MapName_options_str  += '<option value="Dara, Mark">Dara, Mark</option>';
+            MapName_options_str  += '<option value="Darcy, Mary">Darcy, Mary</option>';
+            MapName_options_str  += '<option value="Darrin (Bellion), Judy">Darrin (Bellion), Judy</option>';
+            MapName_options_str  += '<option value="De Nicola, Michael">De Nicola, Michael</option>';
+            MapName_options_str  += '<option value="Delaware (3 Classmates)">Delaware (3 Classmates)</option>';
+            MapName_options_str  += '<option value="Dempsey (Lupino), Patricia">Dempsey (Lupino), Patricia</option>';
+            MapName_options_str  += '<option value="Dentici, Dennis">Dentici, Dennis</option>';
+            MapName_options_str  += '<option value="Devasto (Johnson), Carolann">Devasto (Johnson), Carolann</option>';
+            MapName_options_str  += '<option value="Dewaltoff (Zaniboni), Jill">Dewaltoff (Zaniboni), Jill</option>';
+            MapName_options_str  += '<option value="Dibella (Bonnevie), Patricia">Dibella (Bonnevie), Patricia</option>';
+            MapName_options_str  += '<option value="Dillon, Gregory">Dillon, Gregory</option>';
+            MapName_options_str  += '<option value="Ditusa, Deborah">Ditusa, Deborah</option>';
+            MapName_options_str  += '<option value="Doran, Jean">Doran, Jean</option>';
+            MapName_options_str  += '<option value="Douglas (Parzuchowski), Ellen Louise">Douglas (Parzuchowski), Ellen Louise</option>';
+            MapName_options_str  += '<option value="Doyle (Mcginn), Elizabeth">Doyle (Mcginn), Elizabeth</option>';
+            MapName_options_str  += '<option value="Drdul (Soudmand), Arlene">Drdul (Soudmand), Arlene</option>';
+            MapName_options_str  += '<option value="Duley (Cerretani), Diane">Duley (Cerretani), Diane</option>';
+            MapName_options_str  += '<option value="Dunn, James">Dunn, James</option>';
+            MapName_options_str  += '<option value="Eilbott (Klebanow), Carol">Eilbott (Klebanow), Carol</option>';
+            MapName_options_str  += '<option value="Eisenberg (Rothman), Nancy">Eisenberg (Rothman), Nancy</option>';
+            MapName_options_str  += '<option value="Emond, Raymond">Emond, Raymond</option>';
+            MapName_options_str  += '<option value="Esposito, Henry">Esposito, Henry</option>';
+            MapName_options_str  += '<option value="Faberman, Richard">Faberman, Richard</option>';
+            MapName_options_str  += '<option value="Fanizzi (Pietschmann), Annette">Fanizzi (Pietschmann), Annette</option>';
+            MapName_options_str  += '<option value="Fey (Minch), Rosemarie">Fey (Minch), Rosemarie</option>';
+            MapName_options_str  += '<option value="Figueredo, Enrique (Henry)">Figueredo, Enrique (Henry)</option>';
+            MapName_options_str  += '<option value="Figueredo, Fernando">Figueredo, Fernando</option>';
+            MapName_options_str  += '<option value="Filauro, Thomas">Filauro, Thomas</option>';
+            MapName_options_str  += '<option value="Flack (Henry), Joan">Flack (Henry), Joan</option>';
+            MapName_options_str  += '<option value="Fliegal, Robert">Fliegal, Robert</option>';
+            MapName_options_str  += '<option value="Florida (47 Classmates)">Florida (47 Classmates)</option>';
+            MapName_options_str  += '<option value="Frassanito, Elena">Frassanito, Elena</option>';
+            MapName_options_str  += '<option value="Friedel, Glenn">Friedel, Glenn</option>';
+            MapName_options_str  += '<option value="Frommer, Richard">Frommer, Richard</option>';
+            MapName_options_str  += '<option value="Fumante, Ralph">Fumante, Ralph</option>';
+            MapName_options_str  += '<option value="Fusco, Paul">Fusco, Paul</option>';
+            MapName_options_str  += '<option value="Gaiser, George">Gaiser, George</option>';
+            MapName_options_str  += '<option value="Garwood, Ricky">Garwood, Ricky</option>';
+            MapName_options_str  += '<option value="Gaylord (Mudd), Linda">Gaylord (Mudd), Linda</option>';
+            MapName_options_str  += '<option value="Geiger (Talbot), Barbara">Geiger (Talbot), Barbara</option>';
+            MapName_options_str  += '<option value="Gentile, Bruno">Gentile, Bruno</option>';
+            MapName_options_str  += '<option value="Gentile, Judy">Gentile, Judy</option>';
+            MapName_options_str  += '<option value="Gentile, Roger">Gentile, Roger</option>';
+            MapName_options_str  += '<option value="Georgia (1 Classmates)">Georgia (1 Classmates)</option>';
+            MapName_options_str  += '<option value="Gessner, Douglas">Gessner, Douglas</option>';
+            MapName_options_str  += '<option value="Gilhooley, Robert">Gilhooley, Robert</option>';
+            MapName_options_str  += '<option value="Gilroy (Perillo), Claudia">Gilroy (Perillo), Claudia</option>';
+            MapName_options_str  += '<option value="Giosa, Susan">Giosa, Susan</option>';
+            MapName_options_str  += '<option value="Golashesky (Lynch), Laura">Golashesky (Lynch), Laura</option>';
+            MapName_options_str  += '<option value="Gorges (Ostermann), Joan">Gorges (Ostermann), Joan</option>';
+            MapName_options_str  += '<option value="Granfortuna, Patricia">Granfortuna, Patricia</option>';
+            MapName_options_str  += '<option value="Graziano, John">Graziano, John</option>';
+            MapName_options_str  += '<option value="Grimmelbein (Pingel), Dorothea">Grimmelbein (Pingel), Dorothea</option>';
+            MapName_options_str  += '<option value="Gromatsky, Alfred (Al)">Gromatsky, Alfred (Al)</option>';
+            MapName_options_str  += '<option value="Grossman, Nancy">Grossman, Nancy</option>';
+            MapName_options_str  += '<option value="Grund, David">Grund, David</option>';
+            MapName_options_str  += '<option value="Guma, Daniel">Guma, Daniel</option>';
+            MapName_options_str  += '<option value="Gundersen, Joan">Gundersen, Joan</option>';
+            MapName_options_str  += '<option value="Haas (Mazza), Debra">Haas (Mazza), Debra</option>';
+            MapName_options_str  += '<option value="Hampel (Pinter), Laurie">Hampel (Pinter), Laurie</option>';
+            MapName_options_str  += '<option value="Hanrahan, John">Hanrahan, John</option>';
+            MapName_options_str  += '<option value="Harbich, Frederic">Harbich, Frederic</option>';
+            MapName_options_str  += '<option value="Hawaii (1 Classmates)">Hawaii (1 Classmates)</option>';
+            MapName_options_str  += '<option value="Healy, Peter Burke">Healy, Peter Burke</option>';
+            MapName_options_str  += '<option value="Hejduk (Vega), Nancy">Hejduk (Vega), Nancy</option>';
+            MapName_options_str  += '<option value="Herlinger (Stump), Carole">Herlinger (Stump), Carole</option>';
+            MapName_options_str  += '<option value="Hiltz, Joan">Hiltz, Joan</option>';
+            MapName_options_str  += '<option value="Hines (Coppola), Maureen">Hines (Coppola), Maureen</option>';
+            MapName_options_str  += '<option value="Hochheiser, Robert">Hochheiser, Robert</option>';
+            MapName_options_str  += '<option value="Hollmuller (Hagen), Christine">Hollmuller (Hagen), Christine</option>';
+            MapName_options_str  += '<option value="Holobinka, Katherine">Holobinka, Katherine</option>';
+            MapName_options_str  += '<option value="Howard (Sequeira), Marielena Beatrice">Howard (Sequeira), Marielena Beatrice</option>';
+            MapName_options_str  += '<option value="Hunter, Jeffery">Hunter, Jeffery</option>';
+            MapName_options_str  += '<option value="Illinois (2 Classmates)">Illinois (2 Classmates)</option>';
+            MapName_options_str  += '<option value="Indiana (1 Classmates)">Indiana (1 Classmates)</option>';
+            MapName_options_str  += '<option value="Jackle, William">Jackle, William</option>';
+            MapName_options_str  += '<option value="Jackson, Meredith">Jackson, Meredith</option>';
+            MapName_options_str  += '<option value="Jaronczyk (Connors), Joyce">Jaronczyk (Connors), Joyce</option>';
+            MapName_options_str  += '<option value="Johnson, Eric">Johnson, Eric</option>';
+            MapName_options_str  += '<option value="Johnson, Steven Wayne">Johnson, Steven Wayne</option>';
+            MapName_options_str  += '<option value="Katacin, Robert">Katacin, Robert</option>';
+            MapName_options_str  += '<option value="Kearney, Ann">Kearney, Ann</option>';
+            MapName_options_str  += '<option value="Kelly, Michael">Kelly, Michael</option>';
+            MapName_options_str  += '<option value="Kentucky (3 Classmates)">Kentucky (3 Classmates)</option>';
+            MapName_options_str  += '<option value="Kick (Wright), Geraldine Patrice">Kick (Wright), Geraldine Patrice</option>';
+            MapName_options_str  += '<option value="Kizner, Leslie">Kizner, Leslie</option>';
+            MapName_options_str  += '<option value="Klueber, John (Lance)">Klueber, John (Lance)</option>';
+            MapName_options_str  += '<option value="Klupka (Kennelly), Ellen">Klupka (Kennelly), Ellen</option>';
+            MapName_options_str  += '<option value="Kostecki (Low), Camille">Kostecki (Low), Camille</option>';
+            MapName_options_str  += '<option value="Kotarski, Edward">Kotarski, Edward</option>';
+            MapName_options_str  += '<option value="Krupa, Stanley">Krupa, Stanley</option>';
+            MapName_options_str  += '<option value="Kusmierski, Walter">Kusmierski, Walter</option>';
+            MapName_options_str  += '<option value="Kustek, Robert">Kustek, Robert</option>';
+            MapName_options_str  += '<option value="Lananna, Vincent">Lananna, Vincent</option>';
+            MapName_options_str  += '<option value="Larose, Ellen Marie">Larose, Ellen Marie</option>';
+            MapName_options_str  += '<option value="Lasko, Gloria">Lasko, Gloria</option>';
+            MapName_options_str  += '<option value="Laube (Gaska), Susan">Laube (Gaska), Susan</option>';
+            MapName_options_str  += '<option value="Laudani, Susan">Laudani, Susan</option>';
+            MapName_options_str  += '<option value="Lauinger (Schmidt), Patricia">Lauinger (Schmidt), Patricia</option>';
+            MapName_options_str  += '<option value="Leibow, Steven">Leibow, Steven</option>';
+            MapName_options_str  += '<option value="Leshnick (Kaye), Grace">Leshnick (Kaye), Grace</option>';
+            MapName_options_str  += '<option value="Limauro (Salvato), Lorraine">Limauro (Salvato), Lorraine</option>';
+            MapName_options_str  += '<option value="Limbach (Camean), Janet O.">Limbach (Camean), Janet O.</option>';
+            MapName_options_str  += '<option value="Linhart, Louis">Linhart, Louis</option>';
+            MapName_options_str  += '<option value="Liotta (O&apos;Brien), Janet">Liotta (O&apos;Brien), Janet</option>';
+            MapName_options_str  += '<option value="Lisanti (Levy), Geraldine">Lisanti (Levy), Geraldine</option>';
+            MapName_options_str  += '<option value="Litka (Wagor), Patricia A.">Litka (Wagor), Patricia A.</option>';
+            MapName_options_str  += '<option value="Livoti (DiMario), Rosemary">Livoti (DiMario), Rosemary</option>';
+            MapName_options_str  += '<option value="Locicero (Cushing), Maria">Locicero (Cushing), Maria</option>';
+            MapName_options_str  += '<option value="Lockman, Robert">Lockman, Robert</option>';
+            MapName_options_str  += '<option value="Longeill (Sparks), Deborah">Longeill (Sparks), Deborah</option>';
+            MapName_options_str  += '<option value="Lops (Jinks), Therese">Lops (Jinks), Therese</option>';
+            MapName_options_str  += '<option value="Lops, Jeannine">Lops, Jeannine</option>';
+            MapName_options_str  += '<option value="Loreng, Phillip">Loreng, Phillip</option>';
+            MapName_options_str  += '<option value="Lucito (Radonic), Mary Jane">Lucito (Radonic), Mary Jane</option>';
+            MapName_options_str  += '<option value="Ludlam, Patricia">Ludlam, Patricia</option>';
+            MapName_options_str  += '<option value="Lynch, Gary">Lynch, Gary</option>';
+            MapName_options_str  += '<option value="Maenza (Conway), Carol">Maenza (Conway), Carol</option>';
+            MapName_options_str  += '<option value="Maher, Robert">Maher, Robert</option>';
+            MapName_options_str  += '<option value="Mancuso, Gary">Mancuso, Gary</option>';
+            MapName_options_str  += '<option value="Mandell, Jeffrey">Mandell, Jeffrey</option>';
+            MapName_options_str  += '<option value="Mango (Kiaschko), Roseann">Mango (Kiaschko), Roseann</option>';
+            MapName_options_str  += '<option value="Marchese (Vetter), Joanne">Marchese (Vetter), Joanne</option>';
+            MapName_options_str  += '<option value="Marshall, Frank">Marshall, Frank</option>';
+            MapName_options_str  += '<option value="Martell, Michael">Martell, Michael</option>';
+            MapName_options_str  += '<option value="Martone (Franklin), Cynthia Sue">Martone (Franklin), Cynthia Sue</option>';
+            MapName_options_str  += '<option value="Maryland (6 Classmates)">Maryland (6 Classmates)</option>';
+            MapName_options_str  += '<option value="Mascaro (Fasanelli), Janet">Mascaro (Fasanelli), Janet</option>';
+            MapName_options_str  += '<option value="Massachusetts (7 Classmates)">Massachusetts (7 Classmates)</option>';
+            MapName_options_str  += '<option value="Masson, Suzanne">Masson, Suzanne</option>';
+            MapName_options_str  += '<option value="Maxwell, Virginia">Maxwell, Virginia</option>';
+            MapName_options_str  += '<option value="Mazzeo, Walter">Mazzeo, Walter</option>';
+            MapName_options_str  += '<option value="McCormick (Lake), Barbara">McCormick (Lake), Barbara</option>';
+            MapName_options_str  += '<option value="McKenna, Brian">McKenna, Brian</option>';
+            MapName_options_str  += '<option value="Meades (Leyh), Eileen">Meades (Leyh), Eileen</option>';
+            MapName_options_str  += '<option value="Mendoza, Robert">Mendoza, Robert</option>';
+            MapName_options_str  += '<option value="Merdian, William">Merdian, William</option>';
+            MapName_options_str  += '<option value="Messina (Jimenez), Joann">Messina (Jimenez), Joann</option>';
+            MapName_options_str  += '<option value="Michigan (2 Classmates)">Michigan (2 Classmates)</option>';
+            MapName_options_str  += '<option value="Miller (Fischl), Joanne">Miller (Fischl), Joanne</option>';
+            MapName_options_str  += '<option value="Minch, Steven">Minch, Steven</option>';
+            MapName_options_str  += '<option value="Mincieli (McIarney), Tina">Mincieli (McIarney), Tina</option>';
+            MapName_options_str  += '<option value="Minnesota (1 Classmates)">Minnesota (1 Classmates)</option>';
+            MapName_options_str  += '<option value="Missouri (1 Classmates)">Missouri (1 Classmates)</option>';
+            MapName_options_str  += '<option value="Mistretta, Michael">Mistretta, Michael</option>';
+            MapName_options_str  += '<option value="Molica, Lauretta">Molica, Lauretta</option>';
+            MapName_options_str  += '<option value="Moore, Alexander">Moore, Alexander</option>';
+            MapName_options_str  += '<option value="Moore, Michael">Moore, Michael</option>';
+            MapName_options_str  += '<option value="Morris, Robert (Bob)">Morris, Robert (Bob)</option>';
+            MapName_options_str  += '<option value="Morrison, John">Morrison, John</option>';
+            MapName_options_str  += '<option value="Motyka, Henry J.">Motyka, Henry J.</option>';
+            MapName_options_str  += '<option value="Motylinski, Patrick">Motylinski, Patrick</option>';
+            MapName_options_str  += '<option value="Munoz (Furlong), Anasilia (Anne)">Munoz (Furlong), Anasilia (Anne)</option>';
+            MapName_options_str  += '<option value="Murphy, Richard F.">Murphy, Richard F.</option>';
+            MapName_options_str  += '<option value="Murray, Joseph">Murray, Joseph</option>';
+            MapName_options_str  += '<option value="Napolitan, Dennis">Napolitan, Dennis</option>';
+            MapName_options_str  += '<option value="Nasiatka, Edward J.">Nasiatka, Edward J.</option>';
+            MapName_options_str  += '<option value="Navassardian, Hera">Navassardian, Hera</option>';
+            MapName_options_str  += '<option value="Ness, Lawrence (Larry)">Ness, Lawrence (Larry)</option>';
+            MapName_options_str  += '<option value="Nevada (3 Classmates)">Nevada (3 Classmates)</option>';
+            MapName_options_str  += '<option value="New Jersey (8 Classmates)">New Jersey (8 Classmates)</option>';
+            MapName_options_str  += '<option value="New Mexico (1 Classmates)">New Mexico (1 Classmates)</option>';
+            MapName_options_str  += '<option value="New York (136 Classmates)">New York (136 Classmates)</option>';
+            MapName_options_str  += '<option value="Nicholas, William">Nicholas, William</option>';
+            MapName_options_str  += '<option value="Nocilla, Frank">Nocilla, Frank</option>';
+            MapName_options_str  += '<option value="North Carolina (6 Classmates)">North Carolina (6 Classmates)</option>';
+            MapName_options_str  += '<option value="Notarnicola (Curcio), Lynn">Notarnicola (Curcio), Lynn</option>';
+            MapName_options_str  += '<option value="Nussbaum, William">Nussbaum, William</option>';
+            MapName_options_str  += '<option value="O&apos;Brien, Terence">O&apos;Brien, Terence</option>';
+            MapName_options_str  += '<option value="O&apos;Flaherty, Patricia">O&apos;Flaherty, Patricia</option>';
+            MapName_options_str  += '<option value="O&apos;Reilly, James">O&apos;Reilly, James</option>';
+            MapName_options_str  += '<option value="Ohio (2 Classmates)">Ohio (2 Classmates)</option>';
+            MapName_options_str  += '<option value="Oklahoma (1 Classmates)">Oklahoma (1 Classmates)</option>';
+            MapName_options_str  += '<option value="Olsen (Walsh), Barbara Cheryl">Olsen (Walsh), Barbara Cheryl</option>';
+            MapName_options_str  += '<option value="Olszewski, Joan">Olszewski, Joan</option>';
+            MapName_options_str  += '<option value="Oosterom, Stephen">Oosterom, Stephen</option>';
+            MapName_options_str  += '<option value="Opyr, Linda">Opyr, Linda</option>';
+            MapName_options_str  += '<option value="Oster , Harold">Oster , Harold</option>';
+            MapName_options_str  += '<option value="Ott, Steven (Steve) G.">Ott, Steven (Steve) G.</option>';
+            MapName_options_str  += '<option value="Otto (Jones), Patricia">Otto (Jones), Patricia</option>';
+            MapName_options_str  += '<option value="Paar, James (Jimmy)">Paar, James (Jimmy)</option>';
+            MapName_options_str  += '<option value="Palenscar (Gaiser), Jeanne">Palenscar (Gaiser), Jeanne</option>';
+            MapName_options_str  += '<option value="Palmieri, Barbara Ellen">Palmieri, Barbara Ellen</option>';
+            MapName_options_str  += '<option value="Panchisin, Andrew">Panchisin, Andrew</option>';
+            MapName_options_str  += '<option value="Panetta (Alcide), Lina">Panetta (Alcide), Lina</option>';
+            MapName_options_str  += '<option value="Parente, Frank">Parente, Frank</option>';
+            MapName_options_str  += '<option value="Parisen (Olmstead), Patricia">Parisen (Olmstead), Patricia</option>';
+            MapName_options_str  += '<option value="Pavis, Nancy">Pavis, Nancy</option>';
+            MapName_options_str  += '<option value="Payne, Robert">Payne, Robert</option>';
+            MapName_options_str  += '<option value="Pelletiere, John">Pelletiere, John</option>';
+            MapName_options_str  += '<option value="Pelletiere, Joseph (Joe)">Pelletiere, Joseph (Joe)</option>';
+            MapName_options_str  += '<option value="Pennsylvania (14 Classmates)">Pennsylvania (14 Classmates)</option>';
+            MapName_options_str  += '<option value="Perna, Andrew">Perna, Andrew</option>';
+            MapName_options_str  += '<option value="Perrotti (Lenz), Maryann">Perrotti (Lenz), Maryann</option>';
+            MapName_options_str  += '<option value="Pesa, Frank">Pesa, Frank</option>';
+            MapName_options_str  += '<option value="Petardi (Tangredi), Mary Anne">Petardi (Tangredi), Mary Anne</option>';
+            MapName_options_str  += '<option value="Peterson, David S.">Peterson, David S.</option>';
+            MapName_options_str  += '<option value="Petrillo, Richard">Petrillo, Richard</option>';
+            MapName_options_str  += '<option value="Pezzella, Vincent">Pezzella, Vincent</option>';
+            MapName_options_str  += '<option value="Pignetti, John">Pignetti, John</option>';
+            MapName_options_str  += '<option value="Pinto, Elissa">Pinto, Elissa</option>';
+            MapName_options_str  += '<option value="Podhajecki (Murray), Wanda">Podhajecki (Murray), Wanda</option>';
+            MapName_options_str  += '<option value="Poss, Fred">Poss, Fred</option>';
+            MapName_options_str  += '<option value="Postal, Martin">Postal, Martin</option>';
+            MapName_options_str  += '<option value="Povinelli (Feller), Susan">Povinelli (Feller), Susan</option>';
+            MapName_options_str  += '<option value="Pow, Robert">Pow, Robert</option>';
+            MapName_options_str  += '<option value="Quinlan (Ward), Christine">Quinlan (Ward), Christine</option>';
+            MapName_options_str  += '<option value="Raab, Jane">Raab, Jane</option>';
+            MapName_options_str  += '<option value="Raffetto, Patricia">Raffetto, Patricia</option>';
+            MapName_options_str  += '<option value="Ragusa, John">Ragusa, John</option>';
+            MapName_options_str  += '<option value="Reciniello, Dorothy">Reciniello, Dorothy</option>';
+            MapName_options_str  += '<option value="Reis (Helfenstein), Deborah">Reis (Helfenstein), Deborah</option>';
+            MapName_options_str  += '<option value="Rhode Island (2 Classmates)">Rhode Island (2 Classmates)</option>';
+            MapName_options_str  += '<option value="Riccardi, Frank">Riccardi, Frank</option>';
+            MapName_options_str  += '<option value="Rickmers, Ingke">Rickmers, Ingke</option>';
+            MapName_options_str  += '<option value="Riley (Newman), Barbara">Riley (Newman), Barbara</option>';
+            MapName_options_str  += '<option value="Risch, Lynn">Risch, Lynn</option>';
+            MapName_options_str  += '<option value="Rivera (Ragusa), Marsha">Rivera (Ragusa), Marsha</option>';
+            MapName_options_str  += '<option value="Robbins, Mark">Robbins, Mark</option>';
+            MapName_options_str  += '<option value="Rodriguez (Mooney), Jill">Rodriguez (Mooney), Jill</option>';
+            MapName_options_str  += '<option value="Rogers (Brand), Linda">Rogers (Brand), Linda</option>';
+            MapName_options_str  += '<option value="Rogers, Gail">Rogers, Gail</option>';
+            MapName_options_str  += '<option value="Rothenberg, Michael">Rothenberg, Michael</option>';
+            MapName_options_str  += '<option value="Rotondo, Ronald">Rotondo, Ronald</option>';
+            MapName_options_str  += '<option value="Rowe, Thomas">Rowe, Thomas</option>';
+            MapName_options_str  += '<option value="Russo, Joseph">Russo, Joseph</option>';
+            MapName_options_str  += '<option value="Russo, Michael (Vito)">Russo, Michael (Vito)</option>';
+            MapName_options_str  += '<option value="Russo, William (Billy)">Russo, William (Billy)</option>';
+            MapName_options_str  += '<option value="Salajka (Miller), Joan">Salajka (Miller), Joan</option>';
+            MapName_options_str  += '<option value="Salmaggi, Henry">Salmaggi, Henry</option>';
+            MapName_options_str  += '<option value="Salvagionne (Moore), Doris">Salvagionne (Moore), Doris</option>';
+            MapName_options_str  += '<option value="Salvato, Paul">Salvato, Paul</option>';
+            MapName_options_str  += '<option value="Sartor, Michelle">Sartor, Michelle</option>';
+            MapName_options_str  += '<option value="Sava (Brown), Nancy">Sava (Brown), Nancy</option>';
+            MapName_options_str  += '<option value="Schebendach (McLaughlin), Barbara">Schebendach (McLaughlin), Barbara</option>';
+            MapName_options_str  += '<option value="Schimmenti, Lorraine">Schimmenti, Lorraine</option>';
+            MapName_options_str  += '<option value="Schirano, Richard">Schirano, Richard</option>';
+            MapName_options_str  += '<option value="Schlegel (Vennard), Barbara">Schlegel (Vennard), Barbara</option>';
+            MapName_options_str  += '<option value="Scott (Ciuffo), Maureen">Scott (Ciuffo), Maureen</option>';
+            MapName_options_str  += '<option value="Seifert (Leber), Susan">Seifert (Leber), Susan</option>';
+            MapName_options_str  += '<option value="Serry, John">Serry, John</option>';
+            MapName_options_str  += '<option value="Sesko (Nazarechuk), Diane Carole">Sesko (Nazarechuk), Diane Carole</option>';
+            MapName_options_str  += '<option value="Sgro, Kathryn">Sgro, Kathryn</option>';
+            MapName_options_str  += '<option value="Sills (Burke), Ellen">Sills (Burke), Ellen</option>';
+            MapName_options_str  += '<option value="Simonelli (Braun), Frances">Simonelli (Braun), Frances</option>';
+            MapName_options_str  += '<option value="Sinatra, Glenn">Sinatra, Glenn</option>';
+            MapName_options_str  += '<option value="Sinisgalli (Massaro), Barbara">Sinisgalli (Massaro), Barbara</option>';
+            MapName_options_str  += '<option value="Slaski (McClement), Maryjane">Slaski (McClement), Maryjane</option>';
+            MapName_options_str  += '<option value="Smith (Robbins), Patricia">Smith (Robbins), Patricia</option>';
+            MapName_options_str  += '<option value="Smith, Majorie">Smith, Majorie</option>';
+            MapName_options_str  += '<option value="Sorace, Lawrence">Sorace, Lawrence</option>';
+            MapName_options_str  += '<option value="Sostak (Vitucci), Constance">Sostak (Vitucci), Constance</option>';
+            MapName_options_str  += '<option value="South Carolina (7 Classmates)">South Carolina (7 Classmates)</option>';
+            MapName_options_str  += '<option value="Souther, Raymond">Souther, Raymond</option>';
+            MapName_options_str  += '<option value="Spenceley, Robert">Spenceley, Robert</option>';
+            MapName_options_str  += '<option value="Spenceley, William">Spenceley, William</option>';
+            MapName_options_str  += '<option value="Spinella (Lederman), Susan">Spinella (Lederman), Susan</option>';
+            MapName_options_str  += '<option value="Sullivan (Voegler), Patricia">Sullivan (Voegler), Patricia</option>';
+            MapName_options_str  += '<option value="Sweeney, Kevin">Sweeney, Kevin</option>';
+            MapName_options_str  += '<option value="Swystun, Theodore">Swystun, Theodore</option>';
+            MapName_options_str  += '<option value="Taylor, Robert L.">Taylor, Robert L.</option>';
+            MapName_options_str  += '<option value="Tedone, Louis">Tedone, Louis</option>';
+            MapName_options_str  += '<option value="Tempone (Von Heyn), Margaret">Tempone (Von Heyn), Margaret</option>';
+            MapName_options_str  += '<option value="Tennessee (4 Classmates)">Tennessee (4 Classmates)</option>';
+            MapName_options_str  += '<option value="Texas (1 Classmates)">Texas (1 Classmates)</option>';
+            MapName_options_str  += '<option value="Timmerman (Marigliano), Marilee">Timmerman (Marigliano), Marilee</option>';
+            MapName_options_str  += '<option value="Tirpak, Gerard">Tirpak, Gerard</option>';
+            MapName_options_str  += '<option value="Towey (Metzner), Eileen">Towey (Metzner), Eileen</option>';
+            MapName_options_str  += '<option value="Tramposch, Alan">Tramposch, Alan</option>';
+            MapName_options_str  += '<option value="Trapani (Skelly), Geraldine">Trapani (Skelly), Geraldine</option>';
+            MapName_options_str  += '<option value="Trepeta, Richard W. , M. D.">Trepeta, Richard W. , M. D.</option>';
+            MapName_options_str  += '<option value="Trimboli (Levin), Elyse">Trimboli (Levin), Elyse</option>';
+            MapName_options_str  += '<option value="Tronto, Marilise">Tronto, Marilise</option>';
+            MapName_options_str  += '<option value="Truzzolino, Robert">Truzzolino, Robert</option>';
+            MapName_options_str  += '<option value="Turko, Patricia">Turko, Patricia</option>';
+            MapName_options_str  += '<option value="Van Siclen, Jonathan">Van Siclen, Jonathan</option>';
+            MapName_options_str  += '<option value="Vesneski, Daniel">Vesneski, Daniel</option>';
+            MapName_options_str  += '<option value="Victori, David">Victori, David</option>';
+            MapName_options_str  += '<option value="Virginia (6 Classmates)">Virginia (6 Classmates)</option>';
+            MapName_options_str  += '<option value="Wallis, Thomas (Tommy)">Wallis, Thomas (Tommy)</option>';
+            MapName_options_str  += '<option value="Walters (Palecek), Mary Anne">Walters (Palecek), Mary Anne</option>';
+            MapName_options_str  += '<option value="Warren, Gail">Warren, Gail</option>';
+            MapName_options_str  += '<option value="Watson (Snopkowski), Patricia">Watson (Snopkowski), Patricia</option>';
+            MapName_options_str  += '<option value="Welker (Threadgill), Carolyn">Welker (Threadgill), Carolyn</option>';
+            MapName_options_str  += '<option value="Wilder (Cave), Nancy">Wilder (Cave), Nancy</option>';
+            MapName_options_str  += '<option value="Wisconsin (2 Classmates)">Wisconsin (2 Classmates)</option>';
+            MapName_options_str  += '<option value="Wojcik (Parraga), Barbara">Wojcik (Parraga), Barbara</option>';
+            MapName_options_str  += '<option value="Wolber, Thomas">Wolber, Thomas</option>';
+            MapName_options_str  += '<option value="Woll (Walsh), Cynthia">Woll (Walsh), Cynthia</option>';
+            MapName_options_str  += '<option value="Yablonski, Michael">Yablonski, Michael</option>';
+            MapName_options_str  += '<option value="Yanushka (Phillips), Eileen J.">Yanushka (Phillips), Eileen J.</option>';
+            MapName_options_str  += '<option value="Yodis, Anne">Yodis, Anne</option>';
+            MapName_options_str  += '<option value="Zapke, Arthur">Zapke, Arthur</option>';
+            MapName_options_str  += '<option value="Zaremba (Donovan), Judith">Zaremba (Donovan), Judith</option>';
+            MapName_options_str  += '<option value="Zawaski (Johnson), Christine">Zawaski (Johnson), Christine</option>';
+            MapName_options_str  += '<option value="Zelinski (Zapke), Angela">Zelinski (Zapke), Angela</option>';
+            MapName_options_str  += '<option value="Zoltowski, James">Zoltowski, James</option>';
+            MapName_options_str  += '<option value="Zuchelli (Mollitor), Marianne">Zuchelli (Mollitor), Marianne</option>';
+            MapName_options_str  += '<option value="Zukas, Linda">Zukas, Linda</option>';
+            MapName_options_str  += '<option value="Zulkofske (Keller), Rita">Zulkofske (Keller), Rita</option>';
+            MapName_options_str  += '<option value="Zupka (Ludder), Marie">Zupka (Ludder), Marie</option>';
+            MapName_options_str  += '<option value="Zwillinger, Alan (Al)">Zwillinger, Alan (Al)</option>';
+            sel_MapName.innerHTML = MapName_options_str;
+            div_MapName.appendChild(sel_MapName);
+            var lab_MapName = document.createElement('div');
+            lab_MapName.innerHTML = 'Map-Name';
+            lab_MapName.className = 'filterlabel';
+            div_MapName.appendChild(lab_MapName);
+            var reset_MapName = document.createElement('div');
+            reset_MapName.innerHTML = 'clear filter';
+            reset_MapName.className = 'filterlabel';
+            reset_MapName.onclick = function() {
+                var options = document.getElementById("sel_MapName").options;
                 for (var i=0; i < options.length; i++) {
                     options[i].selected = false;
                 }
                 filterFunc();
             };
-            div_PrimarySecondary.appendChild(reset_PrimarySecondary);
+            div_MapName.appendChild(reset_MapName);
+            document.getElementById("menu").appendChild(
+                document.createElement("div"));
+            var div_State = document.createElement('div');
+            div_State.id = "div_State";
+            div_State.className= "filterselect";
+            document.getElementById("menu").appendChild(div_State);
+            sel_State = document.createElement('select');
+            sel_State.multiple = true;
+            sel_State.size = 10;
+            sel_State.id = "sel_State";
+            var State_options_str = "<option value='' unselected></option>";
+            sel_State.onchange = function(){filterFunc()};
+            State_options_str  += '<option value="AR">AR</option>';
+            State_options_str  += '<option value="AZ">AZ</option>';
+            State_options_str  += '<option value="CA">CA</option>';
+            State_options_str  += '<option value="CO">CO</option>';
+            State_options_str  += '<option value="CT">CT</option>';
+            State_options_str  += '<option value="DE">DE</option>';
+            State_options_str  += '<option value="FL">FL</option>';
+            State_options_str  += '<option value="FRANCE">FRANCE</option>';
+            State_options_str  += '<option value="GA">GA</option>';
+            State_options_str  += '<option value="HI">HI</option>';
+            State_options_str  += '<option value="IL">IL</option>';
+            State_options_str  += '<option value="IN">IN</option>';
+            State_options_str  += '<option value="KY">KY</option>';
+            State_options_str  += '<option value="MA">MA</option>';
+            State_options_str  += '<option value="MD">MD</option>';
+            State_options_str  += '<option value="MI">MI</option>';
+            State_options_str  += '<option value="MN">MN</option>';
+            State_options_str  += '<option value="MO">MO</option>';
+            State_options_str  += '<option value="NC">NC</option>';
+            State_options_str  += '<option value="NJ">NJ</option>';
+            State_options_str  += '<option value="NM">NM</option>';
+            State_options_str  += '<option value="NV">NV</option>';
+            State_options_str  += '<option value="NY">NY</option>';
+            State_options_str  += '<option value="OH">OH</option>';
+            State_options_str  += '<option value="OK">OK</option>';
+            State_options_str  += '<option value="PA">PA</option>';
+            State_options_str  += '<option value="RI">RI</option>';
+            State_options_str  += '<option value="SC">SC</option>';
+            State_options_str  += '<option value="TN">TN</option>';
+            State_options_str  += '<option value="TX">TX</option>';
+            State_options_str  += '<option value="VA">VA</option>';
+            State_options_str  += '<option value="WI">WI</option>';
+            sel_State.innerHTML = State_options_str;
+            div_State.appendChild(sel_State);
+            var lab_State = document.createElement('div');
+            lab_State.innerHTML = 'State';
+            lab_State.className = 'filterlabel';
+            div_State.appendChild(lab_State);
+            var reset_State = document.createElement('div');
+            reset_State.innerHTML = 'clear filter';
+            reset_State.className = 'filterlabel';
+            reset_State.onclick = function() {
+                var options = document.getElementById("sel_State").options;
+                for (var i=0; i < options.length; i++) {
+                    options[i].selected = false;
+                }
+                filterFunc();
+            };
+            div_State.appendChild(reset_State);
             document.getElementById("menu").appendChild(
                 document.createElement("div"));
             var div_GroupClassmates = document.createElement('div');
@@ -923,72 +1330,45 @@
             div_GroupClassmates.appendChild(reset_GroupClassmates);
             document.getElementById("menu").appendChild(
                 document.createElement("div"));
-            var div_State = document.createElement('div');
-            div_State.id = "div_State";
-            div_State.className= "filterselect";
-            document.getElementById("menu").appendChild(div_State);
-            sel_State = document.createElement('select');
-            sel_State.multiple = true;
-            sel_State.size = 10;
-            sel_State.id = "sel_State";
-            var State_options_str = "<option value='' unselected></option>";
-            sel_State.onchange = function(){filterFunc()};
-            State_options_str  += '<option value="AR">AR</option>';
-            State_options_str  += '<option value="AZ">AZ</option>';
-            State_options_str  += '<option value="CA">CA</option>';
-            State_options_str  += '<option value="CO">CO</option>';
-            State_options_str  += '<option value="CT">CT</option>';
-            State_options_str  += '<option value="DE">DE</option>';
-            State_options_str  += '<option value="FL">FL</option>';
-            State_options_str  += '<option value="FRANCE">FRANCE</option>';
-            State_options_str  += '<option value="HI">HI</option>';
-            State_options_str  += '<option value="IL">IL</option>';
-            State_options_str  += '<option value="IN">IN</option>';
-            State_options_str  += '<option value="KY">KY</option>';
-            State_options_str  += '<option value="MA">MA</option>';
-            State_options_str  += '<option value="MD">MD</option>';
-            State_options_str  += '<option value="MI">MI</option>';
-            State_options_str  += '<option value="MO">MO</option>';
-            State_options_str  += '<option value="NC">NC</option>';
-            State_options_str  += '<option value="NH">NH</option>';
-            State_options_str  += '<option value="NJ">NJ</option>';
-            State_options_str  += '<option value="NV">NV</option>';
-            State_options_str  += '<option value="NY">NY</option>';
-            State_options_str  += '<option value="OH">OH</option>';
-            State_options_str  += '<option value="OK">OK</option>';
-            State_options_str  += '<option value="PA">PA</option>';
-            State_options_str  += '<option value="RI">RI</option>';
-            State_options_str  += '<option value="SC">SC</option>';
-            State_options_str  += '<option value="TN">TN</option>';
-            State_options_str  += '<option value="TX">TX</option>';
-            State_options_str  += '<option value="VA">VA</option>';
-            State_options_str  += '<option value="WI">WI</option>';
-            sel_State.innerHTML = State_options_str;
-            div_State.appendChild(sel_State);
-            var lab_State = document.createElement('div');
-            lab_State.innerHTML = 'State';
-            lab_State.className = 'filterlabel';
-            div_State.appendChild(lab_State);
-            var reset_State = document.createElement('div');
-            reset_State.innerHTML = 'clear filter';
-            reset_State.className = 'filterlabel';
-            reset_State.onclick = function() {
-                var options = document.getElementById("sel_State").options;
+            var div_PrimarySecondary = document.createElement('div');
+            div_PrimarySecondary.id = "div_PrimarySecondary";
+            div_PrimarySecondary.className= "filterselect";
+            document.getElementById("menu").appendChild(div_PrimarySecondary);
+            sel_PrimarySecondary = document.createElement('select');
+            sel_PrimarySecondary.multiple = true;
+            sel_PrimarySecondary.size = 3;
+            sel_PrimarySecondary.id = "sel_PrimarySecondary";
+            var PrimarySecondary_options_str = "<option value='' unselected></option>";
+            sel_PrimarySecondary.onchange = function(){filterFunc()};
+            PrimarySecondary_options_str  += '<option value="N/A">N/A</option>';
+            PrimarySecondary_options_str  += '<option value="Primary Address">Primary Address</option>';
+            PrimarySecondary_options_str  += '<option value="Secondary Address">Secondary Address</option>';
+            sel_PrimarySecondary.innerHTML = PrimarySecondary_options_str;
+            div_PrimarySecondary.appendChild(sel_PrimarySecondary);
+            var lab_PrimarySecondary = document.createElement('div');
+            lab_PrimarySecondary.innerHTML = 'Primary/Secondary';
+            lab_PrimarySecondary.className = 'filterlabel';
+            div_PrimarySecondary.appendChild(lab_PrimarySecondary);
+            var reset_PrimarySecondary = document.createElement('div');
+            reset_PrimarySecondary.innerHTML = 'clear filter';
+            reset_PrimarySecondary.className = 'filterlabel';
+            reset_PrimarySecondary.onclick = function() {
+                var options = document.getElementById("sel_PrimarySecondary").options;
                 for (var i=0; i < options.length; i++) {
                     options[i].selected = false;
                 }
                 filterFunc();
             };
-            div_State.appendChild(reset_State);
-        resetLabels([layer_ClassStateTotals_6,layer_ClassClustered_7,layer_ClasswNames_8,layer_Class_9]);
+            div_PrimarySecondary.appendChild(reset_PrimarySecondary);
+        resetLabels([layer_ClassStateTotals_6,layer_ClassClustered_7,layer_ClasswNames_8]);
         map.on("zoomend", function(){
-            resetLabels([layer_ClassStateTotals_6,layer_ClassClustered_7,layer_ClasswNames_8,layer_Class_9]);
+            resetLabels([layer_ClassStateTotals_6,layer_ClassClustered_7,layer_ClasswNames_8]);
         });
         map.on("layeradd", function(){
-            resetLabels([layer_ClassStateTotals_6,layer_ClassClustered_7,layer_ClasswNames_8,layer_Class_9]);
+            resetLabels([layer_ClassStateTotals_6,layer_ClassClustered_7,layer_ClasswNames_8]);
         });
         map.on("layerremove", function(){
-            resetLabels([layer_ClassStateTotals_6,layer_ClassClustered_7,layer_ClasswNames_8,layer_Class_9]);
+            resetLabels([layer_ClassStateTotals_6,layer_ClassClustered_7,layer_ClasswNames_8]);
         });
         </script>
     </body>
