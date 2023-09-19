@@ -22,7 +22,7 @@
             margin: 0;
         }
         </style>
-        <title>NHP Class of 1971 Directory v21</title>
+        <title>NHP Class of 1971 Directory v22</title>
     </head>
     <body>
         <div id="map">
@@ -167,7 +167,7 @@
             });
             var popupContent = '<table>\
                     <tr>\
-                        <th scope="row">Name</th>\
+                        <th scope="row">State Name</th>\
                         <td>' + (feature.properties['Map-Name'] !== null ? autolinker.link(feature.properties['Map-Name'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
@@ -175,7 +175,7 @@
                         <td>' + (feature.properties['State'] !== null ? autolinker.link(feature.properties['State'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">State Total</th>\
+                        <th scope="row">State Total #</th>\
                         <td>' + (feature.properties['State Total'] !== null ? autolinker.link(feature.properties['State Total'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
@@ -239,7 +239,7 @@
             });
             var popupContent = '<table>\
                     <tr>\
-                        <th scope="row">Name</th>\
+                        <th scope="row">Full Name</th>\
                         <td>' + (feature.properties['Map-Name'] !== null ? autolinker.link(feature.properties['Map-Name'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
@@ -249,6 +249,14 @@
                     <tr>\
                         <th scope="row">First Name</th>\
                         <td>' + (feature.properties['Name-First'] !== null ? autolinker.link(feature.properties['Name-First'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">First Name (Preferred)</th>\
+                        <td>' + (feature.properties['Name-First-Preferred'] !== null ? autolinker.link(feature.properties['Name-First-Preferred'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Middle Name</th>\
+                        <td>' + (feature.properties['Name-Middle'] !== null ? autolinker.link(feature.properties['Name-Middle'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Married Name</th>\
@@ -271,8 +279,12 @@
                         <td>' + (feature.properties['Map-Zipcode'] !== null ? autolinker.link(feature.properties['Map-Zipcode'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">eMail Address</th>\
+                        <th scope="row">eMail Address #1</th>\
                         <td>' + (feature.properties['Map-eMail Address-1'] !== null ? autolinker.link(feature.properties['Map-eMail Address-1'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">eMail Address #2</th>\
+                        <td>' + (feature.properties['Map-eMail Address-2'] !== null ? autolinker.link(feature.properties['Map-eMail Address-2'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Cell Phone</th>\
@@ -287,12 +299,16 @@
                         <td>' + (feature.properties['Group-Classmates'] !== null ? autolinker.link(feature.properties['Group-Classmates'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Deceased</th>\
+                        <th scope="row">Deceased?</th>\
                         <td>' + (feature.properties['Deceased'] !== null ? autolinker.link(feature.properties['Deceased'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Primary/Secondary</th>\
+                        <th scope="row">Primary or Secondary Address?</th>\
                         <td>' + (feature.properties['Primary/Secondary'] !== null ? autolinker.link(feature.properties['Primary/Secondary'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Name Suffix</th>\
+                        <td>' + (feature.properties['Name-Suffix'] !== null ? autolinker.link(feature.properties['Name-Suffix'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
@@ -355,7 +371,7 @@
             });
             var popupContent = '<table>\
                     <tr>\
-                        <th scope="row">Name</th>\
+                        <th scope="row">Full Name</th>\
                         <td>' + (feature.properties['Map-Name'] !== null ? autolinker.link(feature.properties['Map-Name'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
@@ -387,8 +403,12 @@
                         <td>' + (feature.properties['Map-Zipcode'] !== null ? autolinker.link(feature.properties['Map-Zipcode'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">eMail Address</th>\
+                        <th scope="row">eMail Address #1</th>\
                         <td>' + (feature.properties['Map-eMail Address-1'] !== null ? autolinker.link(feature.properties['Map-eMail Address-1'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">eMail Address #2</th>\
+                        <td>' + (feature.properties['Map-eMail Address-2'] !== null ? autolinker.link(feature.properties['Map-eMail Address-2'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Cell Phone</th>\
@@ -403,12 +423,16 @@
                         <td>' + (feature.properties['Group-Classmates'] !== null ? autolinker.link(feature.properties['Group-Classmates'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Deceased</th>\
+                        <th scope="row">Deceased?</th>\
                         <td>' + (feature.properties['Deceased'] !== null ? autolinker.link(feature.properties['Deceased'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Primary/Secondary</th>\
+                        <th scope="row">Primary or Secondary Address?</th>\
                         <td>' + (feature.properties['Primary/Secondary'] !== null ? autolinker.link(feature.properties['Primary/Secondary'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Name Suffix</th>\
+                        <td>' + (feature.properties['Name-Suffix'] !== null ? autolinker.link(feature.properties['Name-Suffix'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
@@ -467,7 +491,7 @@
             });
             var popupContent = '<table>\
                     <tr>\
-                        <th scope="row">Name</th>\
+                        <th scope="row">Full Name</th>\
                         <td>' + (feature.properties['Map-Name'] !== null ? autolinker.link(feature.properties['Map-Name'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
@@ -477,6 +501,14 @@
                     <tr>\
                         <th scope="row">First Name</th>\
                         <td>' + (feature.properties['Name-First'] !== null ? autolinker.link(feature.properties['Name-First'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">First Name (Preferred)</th>\
+                        <td>' + (feature.properties['Name-First-Preferred'] !== null ? autolinker.link(feature.properties['Name-First-Preferred'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Middle Name</th>\
+                        <td>' + (feature.properties['Name-Middle'] !== null ? autolinker.link(feature.properties['Name-Middle'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Married Name</th>\
@@ -499,8 +531,12 @@
                         <td>' + (feature.properties['Map-Zipcode'] !== null ? autolinker.link(feature.properties['Map-Zipcode'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">eMail Address</th>\
+                        <th scope="row">eMail Address #1</th>\
                         <td>' + (feature.properties['Map-eMail Address-1'] !== null ? autolinker.link(feature.properties['Map-eMail Address-1'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">eMail Address #2</th>\
+                        <td>' + (feature.properties['Map-eMail Address-2'] !== null ? autolinker.link(feature.properties['Map-eMail Address-2'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Cell Phone</th>\
@@ -515,12 +551,16 @@
                         <td>' + (feature.properties['Group-Classmates'] !== null ? autolinker.link(feature.properties['Group-Classmates'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Deceased</th>\
+                        <th scope="row">Deceased?</th>\
                         <td>' + (feature.properties['Deceased'] !== null ? autolinker.link(feature.properties['Deceased'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Primary/Secondary</th>\
+                        <th scope="row">Primary orSecondary Address?</th>\
                         <td>' + (feature.properties['Primary/Secondary'] !== null ? autolinker.link(feature.properties['Primary/Secondary'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Name Suffix</th>\
+                        <td>' + (feature.properties['Name-Suffix'] !== null ? autolinker.link(feature.properties['Name-Suffix'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
@@ -569,7 +609,7 @@
                 return this._div;
             };
             title.update = function () {
-                this._div.innerHTML = '<h2>NHP Class of 1971 Directory v21</h2>';
+                this._div.innerHTML = '<h2>NHP Class of 1971 Directory v22</h2>';
             };
             title.addTo(map);
             var abstract = new L.Control({'position':'topright'});
@@ -671,7 +711,7 @@
         document.getElementById("all").appendChild(col1);
         document.getElementById("all").appendChild(col2);
         col1.appendChild(mapDiv)
-        var Filters = {"Primary/Secondary": "str","Deceased": "str","State": "str","Group-Classmates": "str","Map-Name": "str"};
+        var Filters = {"Primary/Secondary": "str","Group-Classmates": "str","Deceased": "str","Map-Name": "str","State": "str"};
         function filterFunc() {
           map.eachLayer(function(lyr){
           if ("options" in lyr && "dataVar" in lyr["options"]){
@@ -834,99 +874,6 @@
             div_PrimarySecondary.appendChild(reset_PrimarySecondary);
             document.getElementById("menu").appendChild(
                 document.createElement("div"));
-            var div_Deceased = document.createElement('div');
-            div_Deceased.id = "div_Deceased";
-            div_Deceased.className= "filterselect";
-            document.getElementById("menu").appendChild(div_Deceased);
-            sel_Deceased = document.createElement('select');
-            sel_Deceased.multiple = true;
-            sel_Deceased.size = 3;
-            sel_Deceased.id = "sel_Deceased";
-            var Deceased_options_str = "<option value='' unselected></option>";
-            sel_Deceased.onchange = function(){filterFunc()};
-            Deceased_options_str  += '<option value="Deceased">Deceased</option>';
-            Deceased_options_str  += '<option value="N/A">N/A</option>';
-            Deceased_options_str  += '<option value="Still Alive & Well">Still Alive & Well</option>';
-            sel_Deceased.innerHTML = Deceased_options_str;
-            div_Deceased.appendChild(sel_Deceased);
-            var lab_Deceased = document.createElement('div');
-            lab_Deceased.innerHTML = 'Deceased';
-            lab_Deceased.className = 'filterlabel';
-            div_Deceased.appendChild(lab_Deceased);
-            var reset_Deceased = document.createElement('div');
-            reset_Deceased.innerHTML = 'clear filter';
-            reset_Deceased.className = 'filterlabel';
-            reset_Deceased.onclick = function() {
-                var options = document.getElementById("sel_Deceased").options;
-                for (var i=0; i < options.length; i++) {
-                    options[i].selected = false;
-                }
-                filterFunc();
-            };
-            div_Deceased.appendChild(reset_Deceased);
-            document.getElementById("menu").appendChild(
-                document.createElement("div"));
-            var div_State = document.createElement('div');
-            div_State.id = "div_State";
-            div_State.className= "filterselect";
-            document.getElementById("menu").appendChild(div_State);
-            sel_State = document.createElement('select');
-            sel_State.multiple = true;
-            sel_State.size = 10;
-            sel_State.id = "sel_State";
-            var State_options_str = "<option value='' unselected></option>";
-            sel_State.onchange = function(){filterFunc()};
-            State_options_str  += '<option value="AR">AR</option>';
-            State_options_str  += '<option value="AZ">AZ</option>';
-            State_options_str  += '<option value="CA">CA</option>';
-            State_options_str  += '<option value="CO">CO</option>';
-            State_options_str  += '<option value="CT">CT</option>';
-            State_options_str  += '<option value="DE">DE</option>';
-            State_options_str  += '<option value="FL">FL</option>';
-            State_options_str  += '<option value="FRANCE">FRANCE</option>';
-            State_options_str  += '<option value="GA">GA</option>';
-            State_options_str  += '<option value="HI">HI</option>';
-            State_options_str  += '<option value="IL">IL</option>';
-            State_options_str  += '<option value="IN">IN</option>';
-            State_options_str  += '<option value="KY">KY</option>';
-            State_options_str  += '<option value="MA">MA</option>';
-            State_options_str  += '<option value="MD">MD</option>';
-            State_options_str  += '<option value="MI">MI</option>';
-            State_options_str  += '<option value="MN">MN</option>';
-            State_options_str  += '<option value="MO">MO</option>';
-            State_options_str  += '<option value="NC">NC</option>';
-            State_options_str  += '<option value="NJ">NJ</option>';
-            State_options_str  += '<option value="NM">NM</option>';
-            State_options_str  += '<option value="NV">NV</option>';
-            State_options_str  += '<option value="NY">NY</option>';
-            State_options_str  += '<option value="OH">OH</option>';
-            State_options_str  += '<option value="OK">OK</option>';
-            State_options_str  += '<option value="PA">PA</option>';
-            State_options_str  += '<option value="RI">RI</option>';
-            State_options_str  += '<option value="SC">SC</option>';
-            State_options_str  += '<option value="TN">TN</option>';
-            State_options_str  += '<option value="TX">TX</option>';
-            State_options_str  += '<option value="VA">VA</option>';
-            State_options_str  += '<option value="WI">WI</option>';
-            sel_State.innerHTML = State_options_str;
-            div_State.appendChild(sel_State);
-            var lab_State = document.createElement('div');
-            lab_State.innerHTML = 'State';
-            lab_State.className = 'filterlabel';
-            div_State.appendChild(lab_State);
-            var reset_State = document.createElement('div');
-            reset_State.innerHTML = 'clear filter';
-            reset_State.className = 'filterlabel';
-            reset_State.onclick = function() {
-                var options = document.getElementById("sel_State").options;
-                for (var i=0; i < options.length; i++) {
-                    options[i].selected = false;
-                }
-                filterFunc();
-            };
-            div_State.appendChild(reset_State);
-            document.getElementById("menu").appendChild(
-                document.createElement("div"));
             var div_GroupClassmates = document.createElement('div');
             div_GroupClassmates.id = "div_GroupClassmates";
             div_GroupClassmates.className= "filterselect";
@@ -959,6 +906,38 @@
                 filterFunc();
             };
             div_GroupClassmates.appendChild(reset_GroupClassmates);
+            document.getElementById("menu").appendChild(
+                document.createElement("div"));
+            var div_Deceased = document.createElement('div');
+            div_Deceased.id = "div_Deceased";
+            div_Deceased.className= "filterselect";
+            document.getElementById("menu").appendChild(div_Deceased);
+            sel_Deceased = document.createElement('select');
+            sel_Deceased.multiple = true;
+            sel_Deceased.size = 3;
+            sel_Deceased.id = "sel_Deceased";
+            var Deceased_options_str = "<option value='' unselected></option>";
+            sel_Deceased.onchange = function(){filterFunc()};
+            Deceased_options_str  += '<option value="Deceased">Deceased</option>';
+            Deceased_options_str  += '<option value="N/A">N/A</option>';
+            Deceased_options_str  += '<option value="Still Alive & Well">Still Alive & Well</option>';
+            sel_Deceased.innerHTML = Deceased_options_str;
+            div_Deceased.appendChild(sel_Deceased);
+            var lab_Deceased = document.createElement('div');
+            lab_Deceased.innerHTML = 'Deceased';
+            lab_Deceased.className = 'filterlabel';
+            div_Deceased.appendChild(lab_Deceased);
+            var reset_Deceased = document.createElement('div');
+            reset_Deceased.innerHTML = 'clear filter';
+            reset_Deceased.className = 'filterlabel';
+            reset_Deceased.onclick = function() {
+                var options = document.getElementById("sel_Deceased").options;
+                for (var i=0; i < options.length; i++) {
+                    options[i].selected = false;
+                }
+                filterFunc();
+            };
+            div_Deceased.appendChild(reset_Deceased);
             document.getElementById("menu").appendChild(
                 document.createElement("div"));
             var div_MapName = document.createElement('div');
@@ -1359,6 +1338,67 @@
                 filterFunc();
             };
             div_MapName.appendChild(reset_MapName);
+            document.getElementById("menu").appendChild(
+                document.createElement("div"));
+            var div_State = document.createElement('div');
+            div_State.id = "div_State";
+            div_State.className= "filterselect";
+            document.getElementById("menu").appendChild(div_State);
+            sel_State = document.createElement('select');
+            sel_State.multiple = true;
+            sel_State.size = 10;
+            sel_State.id = "sel_State";
+            var State_options_str = "<option value='' unselected></option>";
+            sel_State.onchange = function(){filterFunc()};
+            State_options_str  += '<option value="AR">AR</option>';
+            State_options_str  += '<option value="AZ">AZ</option>';
+            State_options_str  += '<option value="CA">CA</option>';
+            State_options_str  += '<option value="CO">CO</option>';
+            State_options_str  += '<option value="CT">CT</option>';
+            State_options_str  += '<option value="DE">DE</option>';
+            State_options_str  += '<option value="FL">FL</option>';
+            State_options_str  += '<option value="FRANCE">FRANCE</option>';
+            State_options_str  += '<option value="GA">GA</option>';
+            State_options_str  += '<option value="HI">HI</option>';
+            State_options_str  += '<option value="IL">IL</option>';
+            State_options_str  += '<option value="IN">IN</option>';
+            State_options_str  += '<option value="KY">KY</option>';
+            State_options_str  += '<option value="MA">MA</option>';
+            State_options_str  += '<option value="MD">MD</option>';
+            State_options_str  += '<option value="MI">MI</option>';
+            State_options_str  += '<option value="MN">MN</option>';
+            State_options_str  += '<option value="MO">MO</option>';
+            State_options_str  += '<option value="NC">NC</option>';
+            State_options_str  += '<option value="NJ">NJ</option>';
+            State_options_str  += '<option value="NM">NM</option>';
+            State_options_str  += '<option value="NV">NV</option>';
+            State_options_str  += '<option value="NY">NY</option>';
+            State_options_str  += '<option value="OH">OH</option>';
+            State_options_str  += '<option value="OK">OK</option>';
+            State_options_str  += '<option value="PA">PA</option>';
+            State_options_str  += '<option value="RI">RI</option>';
+            State_options_str  += '<option value="SC">SC</option>';
+            State_options_str  += '<option value="TN">TN</option>';
+            State_options_str  += '<option value="TX">TX</option>';
+            State_options_str  += '<option value="VA">VA</option>';
+            State_options_str  += '<option value="WI">WI</option>';
+            sel_State.innerHTML = State_options_str;
+            div_State.appendChild(sel_State);
+            var lab_State = document.createElement('div');
+            lab_State.innerHTML = 'State';
+            lab_State.className = 'filterlabel';
+            div_State.appendChild(lab_State);
+            var reset_State = document.createElement('div');
+            reset_State.innerHTML = 'clear filter';
+            reset_State.className = 'filterlabel';
+            reset_State.onclick = function() {
+                var options = document.getElementById("sel_State").options;
+                for (var i=0; i < options.length; i++) {
+                    options[i].selected = false;
+                }
+                filterFunc();
+            };
+            div_State.appendChild(reset_State);
         resetLabels([layer_ClassStateTotals_6,layer_ClassClustered_7,layer_ClasswNames_8]);
         map.on("zoomend", function(){
             resetLabels([layer_ClassStateTotals_6,layer_ClassClustered_7,layer_ClasswNames_8]);
