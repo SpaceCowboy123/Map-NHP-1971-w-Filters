@@ -22,7 +22,7 @@
             margin: 0;
         }
         </style>
-        <title>NHP Class of 1971 Directory v22</title>
+        <title>NHP Class of 1971 Directory-Entire Class-QGIS2Web v22</title>
     </head>
     <body>
         <div id="map">
@@ -383,6 +383,14 @@
                         <td>' + (feature.properties['Name-First'] !== null ? autolinker.link(feature.properties['Name-First'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
+                        <th scope="row">First Name (Preferred)</th>\
+                        <td>' + (feature.properties['Name-First-Preferred'] !== null ? autolinker.link(feature.properties['Name-First-Preferred'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Middle Name</th>\
+                        <td>' + (feature.properties['Name-Middle'] !== null ? autolinker.link(feature.properties['Name-Middle'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
                         <th scope="row">Married Name</th>\
                         <td>' + (feature.properties['Name-Married'] !== null ? autolinker.link(feature.properties['Name-Married'].toLocaleString()) : '') + '</td>\
                     </tr>\
@@ -609,7 +617,7 @@
                 return this._div;
             };
             title.update = function () {
-                this._div.innerHTML = '<h2>NHP Class of 1971 Directory v22</h2>';
+                this._div.innerHTML = '<h2>NHP Class of 1971 Directory-Entire Class-QGIS2Web v22</h2>';
             };
             title.addTo(map);
             var abstract = new L.Control({'position':'topright'});
@@ -711,7 +719,7 @@
         document.getElementById("all").appendChild(col1);
         document.getElementById("all").appendChild(col2);
         col1.appendChild(mapDiv)
-        var Filters = {"Primary/Secondary": "str","Group-Classmates": "str","Deceased": "str","Map-Name": "str","State": "str"};
+        var Filters = {"Group-Classmates": "str","Primary/Secondary": "str","Deceased": "str","Map-Name": "str","State": "str"};
         function filterFunc() {
           map.eachLayer(function(lyr){
           if ("options" in lyr && "dataVar" in lyr["options"]){
@@ -842,38 +850,6 @@
         }
             document.getElementById("menu").appendChild(
                 document.createElement("div"));
-            var div_PrimarySecondary = document.createElement('div');
-            div_PrimarySecondary.id = "div_PrimarySecondary";
-            div_PrimarySecondary.className= "filterselect";
-            document.getElementById("menu").appendChild(div_PrimarySecondary);
-            sel_PrimarySecondary = document.createElement('select');
-            sel_PrimarySecondary.multiple = true;
-            sel_PrimarySecondary.size = 3;
-            sel_PrimarySecondary.id = "sel_PrimarySecondary";
-            var PrimarySecondary_options_str = "<option value='' unselected></option>";
-            sel_PrimarySecondary.onchange = function(){filterFunc()};
-            PrimarySecondary_options_str  += '<option value="N/A">N/A</option>';
-            PrimarySecondary_options_str  += '<option value="Primary Address">Primary Address</option>';
-            PrimarySecondary_options_str  += '<option value="Secondary Address">Secondary Address</option>';
-            sel_PrimarySecondary.innerHTML = PrimarySecondary_options_str;
-            div_PrimarySecondary.appendChild(sel_PrimarySecondary);
-            var lab_PrimarySecondary = document.createElement('div');
-            lab_PrimarySecondary.innerHTML = 'Primary/Secondary';
-            lab_PrimarySecondary.className = 'filterlabel';
-            div_PrimarySecondary.appendChild(lab_PrimarySecondary);
-            var reset_PrimarySecondary = document.createElement('div');
-            reset_PrimarySecondary.innerHTML = 'clear filter';
-            reset_PrimarySecondary.className = 'filterlabel';
-            reset_PrimarySecondary.onclick = function() {
-                var options = document.getElementById("sel_PrimarySecondary").options;
-                for (var i=0; i < options.length; i++) {
-                    options[i].selected = false;
-                }
-                filterFunc();
-            };
-            div_PrimarySecondary.appendChild(reset_PrimarySecondary);
-            document.getElementById("menu").appendChild(
-                document.createElement("div"));
             var div_GroupClassmates = document.createElement('div');
             div_GroupClassmates.id = "div_GroupClassmates";
             div_GroupClassmates.className= "filterselect";
@@ -906,6 +882,38 @@
                 filterFunc();
             };
             div_GroupClassmates.appendChild(reset_GroupClassmates);
+            document.getElementById("menu").appendChild(
+                document.createElement("div"));
+            var div_PrimarySecondary = document.createElement('div');
+            div_PrimarySecondary.id = "div_PrimarySecondary";
+            div_PrimarySecondary.className= "filterselect";
+            document.getElementById("menu").appendChild(div_PrimarySecondary);
+            sel_PrimarySecondary = document.createElement('select');
+            sel_PrimarySecondary.multiple = true;
+            sel_PrimarySecondary.size = 3;
+            sel_PrimarySecondary.id = "sel_PrimarySecondary";
+            var PrimarySecondary_options_str = "<option value='' unselected></option>";
+            sel_PrimarySecondary.onchange = function(){filterFunc()};
+            PrimarySecondary_options_str  += '<option value="N/A">N/A</option>';
+            PrimarySecondary_options_str  += '<option value="Primary Address">Primary Address</option>';
+            PrimarySecondary_options_str  += '<option value="Secondary Address">Secondary Address</option>';
+            sel_PrimarySecondary.innerHTML = PrimarySecondary_options_str;
+            div_PrimarySecondary.appendChild(sel_PrimarySecondary);
+            var lab_PrimarySecondary = document.createElement('div');
+            lab_PrimarySecondary.innerHTML = 'Primary/Secondary';
+            lab_PrimarySecondary.className = 'filterlabel';
+            div_PrimarySecondary.appendChild(lab_PrimarySecondary);
+            var reset_PrimarySecondary = document.createElement('div');
+            reset_PrimarySecondary.innerHTML = 'clear filter';
+            reset_PrimarySecondary.className = 'filterlabel';
+            reset_PrimarySecondary.onclick = function() {
+                var options = document.getElementById("sel_PrimarySecondary").options;
+                for (var i=0; i < options.length; i++) {
+                    options[i].selected = false;
+                }
+                filterFunc();
+            };
+            div_PrimarySecondary.appendChild(reset_PrimarySecondary);
             document.getElementById("menu").appendChild(
                 document.createElement("div"));
             var div_Deceased = document.createElement('div');
