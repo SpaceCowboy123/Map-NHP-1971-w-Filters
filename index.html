@@ -22,7 +22,7 @@
             margin: 0;
         }
         </style>
-        <title>Directory-NHP-Class of 1971 v52-QGIS2Web</title>
+        <title>Directory-NHP-@Master v01-QGIS2Web</title>
     </head>
     <body>
         <div id="map">
@@ -42,10 +42,10 @@
         <script src="js/tailDT.js"></script>
 <script src="js/nouislider.min.js"></script>
 <script src="js/wNumb.js"></script>
-        <script src="data/ClassStateTotals_6.js"></script>
-        <script src="data/ClassClustered_7.js"></script>
-        <script src="data/ClasswNames_8.js"></script>
-        <script src="data/Class_9.js"></script>
+        <script src="data/MasterStateTotals_6.js"></script>
+        <script src="data/MasterClustered_7.js"></script>
+        <script src="data/MasterwNames_8.js"></script>
+        <script src="data/Master_9.js"></script>
         <script>
         var highlightLayer;
         function highlightFeature(e) {
@@ -149,7 +149,7 @@
         });
         layer_MapOutline_5;
         map.addLayer(layer_MapOutline_5);
-        function pop_ClassStateTotals_6(feature, layer) {
+        function pop_MasterStateTotals_6(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (i in e.target._eventParents) {
@@ -169,6 +169,12 @@
                     <tr>\
                         <th scope="row">Name</th>\
                         <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Last Name (Maiden Name)'] !== null ? autolinker.link(feature.properties['Last Name (Maiden Name)'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Married Name (Surname)'] !== null ? autolinker.link(feature.properties['Married Name (Surname)'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">State Code</th>\
@@ -182,9 +188,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_ClassStateTotals_6_0() {
+        function style_MasterStateTotals_6_0() {
             return {
-                pane: 'pane_ClassStateTotals_6',
+                pane: 'pane_MasterStateTotals_6',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -198,30 +204,30 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_ClassStateTotals_6');
-        map.getPane('pane_ClassStateTotals_6').style.zIndex = 406;
-        map.getPane('pane_ClassStateTotals_6').style['mix-blend-mode'] = 'normal';
-        var layer_ClassStateTotals_6 = new L.geoJson(json_ClassStateTotals_6, {
+        map.createPane('pane_MasterStateTotals_6');
+        map.getPane('pane_MasterStateTotals_6').style.zIndex = 406;
+        map.getPane('pane_MasterStateTotals_6').style['mix-blend-mode'] = 'normal';
+        var layer_MasterStateTotals_6 = new L.geoJson(json_MasterStateTotals_6, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_ClassStateTotals_6',
-            layerName: 'layer_ClassStateTotals_6',
-            pane: 'pane_ClassStateTotals_6',
-            onEachFeature: pop_ClassStateTotals_6,
+            dataVar: 'json_MasterStateTotals_6',
+            layerName: 'layer_MasterStateTotals_6',
+            pane: 'pane_MasterStateTotals_6',
+            onEachFeature: pop_MasterStateTotals_6,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_ClassStateTotals_6_0(feature));
+                return L.circleMarker(latlng, style_MasterStateTotals_6_0(feature));
             },
         });
-        var cluster_ClassStateTotals_6 = new L.MarkerClusterGroup({showCoverageOnHover: false,
+        var cluster_MasterStateTotals_6 = new L.MarkerClusterGroup({showCoverageOnHover: false,
             spiderfyDistanceMultiplier: 2});
-        cluster_ClassStateTotals_6.addLayer(layer_ClassStateTotals_6);
+        cluster_MasterStateTotals_6.addLayer(layer_MasterStateTotals_6);
 
-        bounds_group.addLayer(layer_ClassStateTotals_6);
-        function pop_ClassClustered_7(feature, layer) {
+        bounds_group.addLayer(layer_MasterStateTotals_6);
+        function pop_MasterClustered_7(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (i in e.target._eventParents) {
@@ -251,8 +257,16 @@
                         <td>' + (feature.properties['Group-Class'] !== null ? autolinker.link(feature.properties['Group-Class'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Married Name</th>\
-                        <td>' + (feature.properties['Married Name'] !== null ? autolinker.link(feature.properties['Married Name'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Group-Boys-Crew</th>\
+                        <td>' + (feature.properties['Group-Boys-Crew'] !== null ? autolinker.link(feature.properties['Group-Boys-Crew'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Last Name (Maiden Name)</th>\
+                        <td>' + (feature.properties['Last Name (Maiden Name)'] !== null ? autolinker.link(feature.properties['Last Name (Maiden Name)'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Married Name (Surname)</th>\
+                        <td>' + (feature.properties['Married Name (Surname)'] !== null ? autolinker.link(feature.properties['Married Name (Surname)'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Address Type</th>\
@@ -294,9 +308,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_ClassClustered_7_0() {
+        function style_MasterClustered_7_0() {
             return {
-                pane: 'pane_ClassClustered_7',
+                pane: 'pane_MasterClustered_7',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -310,30 +324,30 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_ClassClustered_7');
-        map.getPane('pane_ClassClustered_7').style.zIndex = 407;
-        map.getPane('pane_ClassClustered_7').style['mix-blend-mode'] = 'normal';
-        var layer_ClassClustered_7 = new L.geoJson(json_ClassClustered_7, {
+        map.createPane('pane_MasterClustered_7');
+        map.getPane('pane_MasterClustered_7').style.zIndex = 407;
+        map.getPane('pane_MasterClustered_7').style['mix-blend-mode'] = 'normal';
+        var layer_MasterClustered_7 = new L.geoJson(json_MasterClustered_7, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_ClassClustered_7',
-            layerName: 'layer_ClassClustered_7',
-            pane: 'pane_ClassClustered_7',
-            onEachFeature: pop_ClassClustered_7,
+            dataVar: 'json_MasterClustered_7',
+            layerName: 'layer_MasterClustered_7',
+            pane: 'pane_MasterClustered_7',
+            onEachFeature: pop_MasterClustered_7,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_ClassClustered_7_0(feature));
+                return L.circleMarker(latlng, style_MasterClustered_7_0(feature));
             },
         });
-        var cluster_ClassClustered_7 = new L.MarkerClusterGroup({showCoverageOnHover: false,
+        var cluster_MasterClustered_7 = new L.MarkerClusterGroup({showCoverageOnHover: false,
             spiderfyDistanceMultiplier: 2});
-        cluster_ClassClustered_7.addLayer(layer_ClassClustered_7);
+        cluster_MasterClustered_7.addLayer(layer_MasterClustered_7);
 
-        bounds_group.addLayer(layer_ClassClustered_7);
-        function pop_ClasswNames_8(feature, layer) {
+        bounds_group.addLayer(layer_MasterClustered_7);
+        function pop_MasterwNames_8(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (i in e.target._eventParents) {
@@ -363,8 +377,16 @@
                         <td>' + (feature.properties['Group-Class'] !== null ? autolinker.link(feature.properties['Group-Class'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Married Name</th>\
-                        <td>' + (feature.properties['Married Name'] !== null ? autolinker.link(feature.properties['Married Name'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Group-Boys-Crew</th>\
+                        <td>' + (feature.properties['Group-Boys-Crew'] !== null ? autolinker.link(feature.properties['Group-Boys-Crew'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Last Name (Maiden Name)</th>\
+                        <td>' + (feature.properties['Last Name (Maiden Name)'] !== null ? autolinker.link(feature.properties['Last Name (Maiden Name)'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Married Name (Surname)</th>\
+                        <td>' + (feature.properties['Married Name (Surname)'] !== null ? autolinker.link(feature.properties['Married Name (Surname)'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Address Type</th>\
@@ -406,9 +428,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_ClasswNames_8_0() {
+        function style_MasterwNames_8_0() {
             return {
-                pane: 'pane_ClasswNames_8',
+                pane: 'pane_MasterwNames_8',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -422,26 +444,26 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_ClasswNames_8');
-        map.getPane('pane_ClasswNames_8').style.zIndex = 408;
-        map.getPane('pane_ClasswNames_8').style['mix-blend-mode'] = 'normal';
-        var layer_ClasswNames_8 = new L.geoJson(json_ClasswNames_8, {
+        map.createPane('pane_MasterwNames_8');
+        map.getPane('pane_MasterwNames_8').style.zIndex = 408;
+        map.getPane('pane_MasterwNames_8').style['mix-blend-mode'] = 'normal';
+        var layer_MasterwNames_8 = new L.geoJson(json_MasterwNames_8, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_ClasswNames_8',
-            layerName: 'layer_ClasswNames_8',
-            pane: 'pane_ClasswNames_8',
-            onEachFeature: pop_ClasswNames_8,
+            dataVar: 'json_MasterwNames_8',
+            layerName: 'layer_MasterwNames_8',
+            pane: 'pane_MasterwNames_8',
+            onEachFeature: pop_MasterwNames_8,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_ClasswNames_8_0(feature));
+                return L.circleMarker(latlng, style_MasterwNames_8_0(feature));
             },
         });
-        bounds_group.addLayer(layer_ClasswNames_8);
-        function pop_Class_9(feature, layer) {
+        bounds_group.addLayer(layer_MasterwNames_8);
+        function pop_Master_9(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (i in e.target._eventParents) {
@@ -471,8 +493,16 @@
                         <td>' + (feature.properties['Group-Class'] !== null ? autolinker.link(feature.properties['Group-Class'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Married Name</th>\
-                        <td>' + (feature.properties['Married Name'] !== null ? autolinker.link(feature.properties['Married Name'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Group-Boys-Crew</th>\
+                        <td>' + (feature.properties['Group-Boys-Crew'] !== null ? autolinker.link(feature.properties['Group-Boys-Crew'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Last Name (Maiden Name)</th>\
+                        <td>' + (feature.properties['Last Name (Maiden Name)'] !== null ? autolinker.link(feature.properties['Last Name (Maiden Name)'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Married Name (Surname)</th>\
+                        <td>' + (feature.properties['Married Name (Surname)'] !== null ? autolinker.link(feature.properties['Married Name (Surname)'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Address Type</th>\
@@ -514,9 +544,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_Class_9_0() {
+        function style_Master_9_0() {
             return {
-                pane: 'pane_Class_9',
+                pane: 'pane_Master_9',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -530,26 +560,26 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_Class_9');
-        map.getPane('pane_Class_9').style.zIndex = 409;
-        map.getPane('pane_Class_9').style['mix-blend-mode'] = 'normal';
-        var layer_Class_9 = new L.geoJson(json_Class_9, {
+        map.createPane('pane_Master_9');
+        map.getPane('pane_Master_9').style.zIndex = 409;
+        map.getPane('pane_Master_9').style['mix-blend-mode'] = 'normal';
+        var layer_Master_9 = new L.geoJson(json_Master_9, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Class_9',
-            layerName: 'layer_Class_9',
-            pane: 'pane_Class_9',
-            onEachFeature: pop_Class_9,
+            dataVar: 'json_Master_9',
+            layerName: 'layer_Master_9',
+            pane: 'pane_Master_9',
+            onEachFeature: pop_Master_9,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_Class_9_0(feature));
+                return L.circleMarker(latlng, style_Master_9_0(feature));
             },
         });
-        bounds_group.addLayer(layer_Class_9);
-        map.addLayer(layer_Class_9);
+        bounds_group.addLayer(layer_Master_9);
+        map.addLayer(layer_Master_9);
             var title = new L.Control();
             title.onAdd = function (map) {
                 this._div = L.DomUtil.create('div', 'info');
@@ -557,7 +587,7 @@
                 return this._div;
             };
             title.update = function () {
-                this._div.innerHTML = '<h2>Directory-NHP-Class of 1971 v52-QGIS2Web</h2>';
+                this._div.innerHTML = '<h2>Directory-NHP-@Master v01-QGIS2Web</h2>';
             };
             title.addTo(map);
             var abstract = new L.Control({'position':'topright'});
@@ -592,15 +622,15 @@
         document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
         .title += 'Search for a place';
         var baseMaps = {};
-        L.control.layers(baseMaps,{'<img src="legend/Class_9.png" /> Class': layer_Class_9,'<img src="legend/ClasswNames_8.png" /> Class w/Names': layer_ClasswNames_8,'<img src="legend/ClassClustered_7.png" /> Class-Clustered': cluster_ClassClustered_7,'<img src="legend/ClassStateTotals_6.png" /> Class-State Totals': cluster_ClassStateTotals_6,"Map-Outline": layer_MapOutline_5,"Map-OSM Road": layer_MapOSMRoad_4,"Map-Google Road": layer_MapGoogleRoad_3,"Map-Google Satellite": layer_MapGoogleSatellite_2,"Map-Google Hybrid": layer_MapGoogleHybrid_1,"Map-Waze Road": layer_MapWazeRoad_0,},{collapsed:false}).addTo(map);
+        L.control.layers(baseMaps,{'<img src="legend/Master_9.png" /> Master': layer_Master_9,'<img src="legend/MasterwNames_8.png" /> Master w/Names': layer_MasterwNames_8,'<img src="legend/MasterClustered_7.png" /> Master-Clustered': cluster_MasterClustered_7,'<img src="legend/MasterStateTotals_6.png" /> Master-State Totals': cluster_MasterStateTotals_6,"Map-Outline": layer_MapOutline_5,"Map-OSM Road": layer_MapOSMRoad_4,"Map-Google Road": layer_MapGoogleRoad_3,"Map-Google Satellite": layer_MapGoogleSatellite_2,"Map-Google Hybrid": layer_MapGoogleHybrid_1,"Map-Waze Road": layer_MapWazeRoad_0,},{collapsed:false}).addTo(map);
         setBounds();
         var i = 0;
-        layer_ClassStateTotals_6.eachLayer(function(layer) {
+        layer_MasterStateTotals_6.eachLayer(function(layer) {
             var context = {
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['Name'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_ClassStateTotals_6'});
+            layer.bindTooltip((layer.feature.properties['Name'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_MasterStateTotals_6'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
@@ -608,12 +638,12 @@
               i++;
         });
         var i = 0;
-        layer_ClassClustered_7.eachLayer(function(layer) {
+        layer_MasterClustered_7.eachLayer(function(layer) {
             var context = {
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['Name'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_ClassClustered_7'});
+            layer.bindTooltip((layer.feature.properties['Name'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_MasterClustered_7'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
@@ -621,12 +651,12 @@
               i++;
         });
         var i = 0;
-        layer_ClasswNames_8.eachLayer(function(layer) {
+        layer_MasterwNames_8.eachLayer(function(layer) {
             var context = {
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['Name'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_ClasswNames_8'});
+            layer.bindTooltip((layer.feature.properties['Name'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_MasterwNames_8'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
@@ -634,7 +664,7 @@
               i++;
         });
         map.addControl(new L.Control.Search({
-            layer: layer_Class_9,
+            layer: layer_Master_9,
             initial: false,
             hideMarkerOnCollapse: true,
             propertyName: 'Name'}));
@@ -659,7 +689,7 @@
         document.getElementById("all").appendChild(col1);
         document.getElementById("all").appendChild(col2);
         col1.appendChild(mapDiv)
-        var Filters = {"Name": "str","Address Type": "str","Deceased?": "str","State Code": "str","Group-Class": "str"};
+        var Filters = {"Name": "str","Group-Class": "str","Address Type": "str","Deceased?": "str","State Code": "str","Group-Boys-Crew": "str"};
         function filterFunc() {
           map.eachLayer(function(lyr){
           if ("options" in lyr && "dataVar" in lyr["options"]){
@@ -747,12 +777,12 @@
           this[lyr["options"]["layerName"]].clearLayers();
           this[lyr["options"]["layerName"]].addData(features);
         var i = 0;
-        layer_ClassStateTotals_6.eachLayer(function(layer) {
+        layer_MasterStateTotals_6.eachLayer(function(layer) {
             var context = {
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['Name'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_ClassStateTotals_6'});
+            layer.bindTooltip((layer.feature.properties['Name'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_MasterStateTotals_6'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
@@ -760,12 +790,12 @@
               i++;
         });
         var i = 0;
-        layer_ClassClustered_7.eachLayer(function(layer) {
+        layer_MasterClustered_7.eachLayer(function(layer) {
             var context = {
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['Name'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_ClassClustered_7'});
+            layer.bindTooltip((layer.feature.properties['Name'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_MasterClustered_7'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
@@ -773,12 +803,12 @@
               i++;
         });
         var i = 0;
-        layer_ClasswNames_8.eachLayer(function(layer) {
+        layer_MasterwNames_8.eachLayer(function(layer) {
             var context = {
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['Name'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_ClasswNames_8'});
+            layer.bindTooltip((layer.feature.properties['Name'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_MasterwNames_8'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
@@ -806,7 +836,7 @@
             Name_options_str  += '<option value="Amodeo , Vincent">Amodeo , Vincent</option>';
             Name_options_str  += '<option value="Amore (Davis), Maria">Amore (Davis), Maria</option>';
             Name_options_str  += '<option value="Andersen (Sumutka), Susan">Andersen (Sumutka), Susan</option>';
-            Name_options_str  += '<option value="Arizona (56)">Arizona (56)</option>';
+            Name_options_str  += '<option value="Arizona (6)">Arizona (6)</option>';
             Name_options_str  += '<option value="Arkansas (1)">Arkansas (1)</option>';
             Name_options_str  += '<option value="Armband (Henkel), Abbe">Armband (Henkel), Abbe</option>';
             Name_options_str  += '<option value="Atsalis, Louis">Atsalis, Louis</option>';
@@ -827,6 +857,19 @@
             Name_options_str  += '<option value="Bernstein, Andrew">Bernstein, Andrew</option>';
             Name_options_str  += '<option value="Bertolini (Porr), Tina">Bertolini (Porr), Tina</option>';
             Name_options_str  += '<option value="Biancanelli, Joseph (Joe)">Biancanelli, Joseph (Joe)</option>';
+            Name_options_str  += '<option value="Biancanelli-00, Joseph (Joe)">Biancanelli-00, Joseph (Joe)</option>';
+            Name_options_str  += '<option value="Biancanelli-01, Joseph (Joe)">Biancanelli-01, Joseph (Joe)</option>';
+            Name_options_str  += '<option value="Biancanelli-02, Joseph (Joe)">Biancanelli-02, Joseph (Joe)</option>';
+            Name_options_str  += '<option value="Biancanelli-03, Joseph (Joe)">Biancanelli-03, Joseph (Joe)</option>';
+            Name_options_str  += '<option value="Biancanelli-04, Joseph (Joe)">Biancanelli-04, Joseph (Joe)</option>';
+            Name_options_str  += '<option value="Biancanelli-05, Joseph (Joe)">Biancanelli-05, Joseph (Joe)</option>';
+            Name_options_str  += '<option value="Biancanelli-06, Joseph (Joe)">Biancanelli-06, Joseph (Joe)</option>';
+            Name_options_str  += '<option value="Biancanelli-07, Joseph (Joe)">Biancanelli-07, Joseph (Joe)</option>';
+            Name_options_str  += '<option value="Biancanelli-08, Joseph (Joe)">Biancanelli-08, Joseph (Joe)</option>';
+            Name_options_str  += '<option value="Biancanelli-09, Joseph (Joe)">Biancanelli-09, Joseph (Joe)</option>';
+            Name_options_str  += '<option value="Biancanelli-10, Joseph (Joe)">Biancanelli-10, Joseph (Joe)</option>';
+            Name_options_str  += '<option value="Biancanelli-11, Joseph (Joe)">Biancanelli-11, Joseph (Joe)</option>';
+            Name_options_str  += '<option value="Biancanelli-12, Joseph (Joe)">Biancanelli-12, Joseph (Joe)</option>';
             Name_options_str  += '<option value="Boardman, James">Boardman, James</option>';
             Name_options_str  += '<option value="Boch, Richard">Boch, Richard</option>';
             Name_options_str  += '<option value="Bogart (Hurlburt), Helen">Bogart (Hurlburt), Helen</option>';
@@ -857,7 +900,7 @@
             Name_options_str  += '<option value="Colefield, Steven">Colefield, Steven</option>';
             Name_options_str  += '<option value="Coleman, Paul A.">Coleman, Paul A.</option>';
             Name_options_str  += '<option value="Colorado (3)">Colorado (3)</option>';
-            Name_options_str  += '<option value="Connecticut (8)">Connecticut (8)</option>';
+            Name_options_str  += '<option value="Connecticut (16)">Connecticut (16)</option>';
             Name_options_str  += '<option value="Cornelius, Lester">Cornelius, Lester</option>';
             Name_options_str  += '<option value="Cosenza, Victor">Cosenza, Victor</option>';
             Name_options_str  += '<option value="Croker, Virginia">Croker, Virginia</option>';
@@ -934,6 +977,19 @@
             Name_options_str  += '<option value="Harbich, Frederic">Harbich, Frederic</option>';
             Name_options_str  += '<option value="Hawaii (1)">Hawaii (1)</option>';
             Name_options_str  += '<option value="Healy, Peter Burke">Healy, Peter Burke</option>';
+            Name_options_str  += '<option value="Healy-00, Peter Burke">Healy-00, Peter Burke</option>';
+            Name_options_str  += '<option value="Healy-01, Peter Burke">Healy-01, Peter Burke</option>';
+            Name_options_str  += '<option value="Healy-02, Peter Burke">Healy-02, Peter Burke</option>';
+            Name_options_str  += '<option value="Healy-03, Peter Burke">Healy-03, Peter Burke</option>';
+            Name_options_str  += '<option value="Healy-04, Peter Burke">Healy-04, Peter Burke</option>';
+            Name_options_str  += '<option value="Healy-05, Peter Burke">Healy-05, Peter Burke</option>';
+            Name_options_str  += '<option value="Healy-06, Peter Burke">Healy-06, Peter Burke</option>';
+            Name_options_str  += '<option value="Healy-07, Peter Burke">Healy-07, Peter Burke</option>';
+            Name_options_str  += '<option value="Healy-08, Peter Burke">Healy-08, Peter Burke</option>';
+            Name_options_str  += '<option value="Healy-09, Peter Burke">Healy-09, Peter Burke</option>';
+            Name_options_str  += '<option value="Healy-10, Peter Burke">Healy-10, Peter Burke</option>';
+            Name_options_str  += '<option value="Healy-11, Peter Burke">Healy-11, Peter Burke</option>';
+            Name_options_str  += '<option value="Healy-12, Peter Burke">Healy-12, Peter Burke</option>';
             Name_options_str  += '<option value="Hejduk (Vega), Nancy">Hejduk (Vega), Nancy</option>';
             Name_options_str  += '<option value="Herlinger (Stump), Carole">Herlinger (Stump), Carole</option>';
             Name_options_str  += '<option value="Hiltz, Joan">Hiltz, Joan</option>';
@@ -979,6 +1035,7 @@
             Name_options_str  += '<option value="Litka (Wagor), Patricia A.">Litka (Wagor), Patricia A.</option>';
             Name_options_str  += '<option value="Livoti (DiMario), Rosemary">Livoti (DiMario), Rosemary</option>';
             Name_options_str  += '<option value="Locicero (Cushing), Maria">Locicero (Cushing), Maria</option>';
+            Name_options_str  += '<option value="Lockman, Robert">Lockman, Robert</option>';
             Name_options_str  += '<option value="Longeill (Sparks), Deborah">Longeill (Sparks), Deborah</option>';
             Name_options_str  += '<option value="Lops (Jinks), Therese">Lops (Jinks), Therese</option>';
             Name_options_str  += '<option value="Lops, Jeannine">Lops, Jeannine</option>';
@@ -1031,7 +1088,7 @@
             Name_options_str  += '<option value="Nevada (3)">Nevada (3)</option>';
             Name_options_str  += '<option value="New Jersey (9)">New Jersey (9)</option>';
             Name_options_str  += '<option value="New Mexico (1)">New Mexico (1)</option>';
-            Name_options_str  += '<option value="New York (134)">New York (134)</option>';
+            Name_options_str  += '<option value="New York (133)">New York (133)</option>';
             Name_options_str  += '<option value="Nicholas, William">Nicholas, William</option>';
             Name_options_str  += '<option value="Nocilla, Frank">Nocilla, Frank</option>';
             Name_options_str  += '<option value="North Carolina (6)">North Carolina (6)</option>';
@@ -1060,12 +1117,13 @@
             Name_options_str  += '<option value="Payne, Robert">Payne, Robert</option>';
             Name_options_str  += '<option value="Pelletiere, John">Pelletiere, John</option>';
             Name_options_str  += '<option value="Pelletiere, Joseph (Joe)">Pelletiere, Joseph (Joe)</option>';
-            Name_options_str  += '<option value="Pennsylvania (14)">Pennsylvania (14)</option>';
+            Name_options_str  += '<option value="Pennsylvania (22)">Pennsylvania (22)</option>';
             Name_options_str  += '<option value="Perna, Andrew">Perna, Andrew</option>';
             Name_options_str  += '<option value="Perrotti (Lenz), Maryann">Perrotti (Lenz), Maryann</option>';
             Name_options_str  += '<option value="Pesa, Frank">Pesa, Frank</option>';
             Name_options_str  += '<option value="Petardi (Tangredi), Mary Anne">Petardi (Tangredi), Mary Anne</option>';
             Name_options_str  += '<option value="Peterson, David S.">Peterson, David S.</option>';
+            Name_options_str  += '<option value="Petrillo, Richard">Petrillo, Richard</option>';
             Name_options_str  += '<option value="Pezzella, Vincent">Pezzella, Vincent</option>';
             Name_options_str  += '<option value="Pignetti, John">Pignetti, John</option>';
             Name_options_str  += '<option value="Pinto, Elissa">Pinto, Elissa</option>';
@@ -1141,7 +1199,7 @@
             Name_options_str  += '<option value="Trepeta, Richard W. , M. D.">Trepeta, Richard W. , M. D.</option>';
             Name_options_str  += '<option value="Trimboli (Levin), Elyse">Trimboli (Levin), Elyse</option>';
             Name_options_str  += '<option value="Tronto, Marilise">Tronto, Marilise</option>';
-            Name_options_str  += '<option value="Truzzolino, Robert">Truzzolino, Robert</option>';
+            Name_options_str  += '<option value="Truzzolino, Robert (Bob)">Truzzolino, Robert (Bob)</option>';
             Name_options_str  += '<option value="Turko, Patricia">Turko, Patricia</option>';
             Name_options_str  += '<option value="Van Siclen, Jonathan">Van Siclen, Jonathan</option>';
             Name_options_str  += '<option value="Vesneski, Daniel">Vesneski, Daniel</option>';
@@ -1187,6 +1245,40 @@
                 filterFunc();
             };
             div_Name.appendChild(reset_Name);
+            document.getElementById("menu").appendChild(
+                document.createElement("div"));
+            var div_GroupClass = document.createElement('div');
+            div_GroupClass.id = "div_GroupClass";
+            div_GroupClass.className= "filterselect";
+            document.getElementById("menu").appendChild(div_GroupClass);
+            sel_GroupClass = document.createElement('select');
+            sel_GroupClass.multiple = true;
+            sel_GroupClass.size = 5;
+            sel_GroupClass.id = "sel_GroupClass";
+            var GroupClass_options_str = "<option value='' unselected></option>";
+            sel_GroupClass.onchange = function(){filterFunc()};
+            GroupClass_options_str  += '<option value="Maria Regina Class of 1971">Maria Regina Class of 1971</option>';
+            GroupClass_options_str  += '<option value="N/A">N/A</option>';
+            GroupClass_options_str  += '<option value="NHP Class of 1971">NHP Class of 1971</option>';
+            GroupClass_options_str  += '<option value="NHP Class of 1971 - DECEASED">NHP Class of 1971 - DECEASED</option>';
+            GroupClass_options_str  += '<option value="NHP Class of 1972">NHP Class of 1972</option>';
+            sel_GroupClass.innerHTML = GroupClass_options_str;
+            div_GroupClass.appendChild(sel_GroupClass);
+            var lab_GroupClass = document.createElement('div');
+            lab_GroupClass.innerHTML = 'Group-Class';
+            lab_GroupClass.className = 'filterlabel';
+            div_GroupClass.appendChild(lab_GroupClass);
+            var reset_GroupClass = document.createElement('div');
+            reset_GroupClass.innerHTML = 'clear filter';
+            reset_GroupClass.className = 'filterlabel';
+            reset_GroupClass.onclick = function() {
+                var options = document.getElementById("sel_GroupClass").options;
+                for (var i=0; i < options.length; i++) {
+                    options[i].selected = false;
+                }
+                filterFunc();
+            };
+            div_GroupClass.appendChild(reset_GroupClass);
             document.getElementById("menu").appendChild(
                 document.createElement("div"));
             var div_AddressType = document.createElement('div');
@@ -1314,45 +1406,47 @@
             div_StateCode.appendChild(reset_StateCode);
             document.getElementById("menu").appendChild(
                 document.createElement("div"));
-            var div_GroupClass = document.createElement('div');
-            div_GroupClass.id = "div_GroupClass";
-            div_GroupClass.className= "filterselect";
-            document.getElementById("menu").appendChild(div_GroupClass);
-            sel_GroupClass = document.createElement('select');
-            sel_GroupClass.multiple = true;
-            sel_GroupClass.size = 3;
-            sel_GroupClass.id = "sel_GroupClass";
-            var GroupClass_options_str = "<option value='' unselected></option>";
-            sel_GroupClass.onchange = function(){filterFunc()};
-            GroupClass_options_str  += '<option value="N/A">N/A</option>';
-            GroupClass_options_str  += '<option value="NHP Class of 1971">NHP Class of 1971</option>';
-            GroupClass_options_str  += '<option value="NHP Class of 1971 - DECEASED">NHP Class of 1971 - DECEASED</option>';
-            sel_GroupClass.innerHTML = GroupClass_options_str;
-            div_GroupClass.appendChild(sel_GroupClass);
-            var lab_GroupClass = document.createElement('div');
-            lab_GroupClass.innerHTML = 'Group-Class';
-            lab_GroupClass.className = 'filterlabel';
-            div_GroupClass.appendChild(lab_GroupClass);
-            var reset_GroupClass = document.createElement('div');
-            reset_GroupClass.innerHTML = 'clear filter';
-            reset_GroupClass.className = 'filterlabel';
-            reset_GroupClass.onclick = function() {
-                var options = document.getElementById("sel_GroupClass").options;
+            var div_GroupBoysCrew = document.createElement('div');
+            div_GroupBoysCrew.id = "div_GroupBoysCrew";
+            div_GroupBoysCrew.className= "filterselect";
+            document.getElementById("menu").appendChild(div_GroupBoysCrew);
+            sel_GroupBoysCrew = document.createElement('select');
+            sel_GroupBoysCrew.multiple = true;
+            sel_GroupBoysCrew.size = 5;
+            sel_GroupBoysCrew.id = "sel_GroupBoysCrew";
+            var GroupBoysCrew_options_str = "<option value='' unselected></option>";
+            sel_GroupBoysCrew.onchange = function(){filterFunc()};
+            GroupBoysCrew_options_str  += '<option value="NULL">NULL</option>';
+            GroupBoysCrew_options_str  += '<option value="N/A">N/A</option>';
+            GroupBoysCrew_options_str  += '<option value="The Boys">The Boys</option>';
+            GroupBoysCrew_options_str  += '<option value="The Boys/The Crew">The Boys/The Crew</option>';
+            GroupBoysCrew_options_str  += '<option value="The Crew">The Crew</option>';
+            sel_GroupBoysCrew.innerHTML = GroupBoysCrew_options_str;
+            div_GroupBoysCrew.appendChild(sel_GroupBoysCrew);
+            var lab_GroupBoysCrew = document.createElement('div');
+            lab_GroupBoysCrew.innerHTML = 'Group-Boys-Crew';
+            lab_GroupBoysCrew.className = 'filterlabel';
+            div_GroupBoysCrew.appendChild(lab_GroupBoysCrew);
+            var reset_GroupBoysCrew = document.createElement('div');
+            reset_GroupBoysCrew.innerHTML = 'clear filter';
+            reset_GroupBoysCrew.className = 'filterlabel';
+            reset_GroupBoysCrew.onclick = function() {
+                var options = document.getElementById("sel_GroupBoysCrew").options;
                 for (var i=0; i < options.length; i++) {
                     options[i].selected = false;
                 }
                 filterFunc();
             };
-            div_GroupClass.appendChild(reset_GroupClass);
-        resetLabels([layer_ClassStateTotals_6,layer_ClassClustered_7,layer_ClasswNames_8]);
+            div_GroupBoysCrew.appendChild(reset_GroupBoysCrew);
+        resetLabels([layer_MasterStateTotals_6,layer_MasterClustered_7,layer_MasterwNames_8]);
         map.on("zoomend", function(){
-            resetLabels([layer_ClassStateTotals_6,layer_ClassClustered_7,layer_ClasswNames_8]);
+            resetLabels([layer_MasterStateTotals_6,layer_MasterClustered_7,layer_MasterwNames_8]);
         });
         map.on("layeradd", function(){
-            resetLabels([layer_ClassStateTotals_6,layer_ClassClustered_7,layer_ClasswNames_8]);
+            resetLabels([layer_MasterStateTotals_6,layer_MasterClustered_7,layer_MasterwNames_8]);
         });
         map.on("layerremove", function(){
-            resetLabels([layer_ClassStateTotals_6,layer_ClassClustered_7,layer_ClasswNames_8]);
+            resetLabels([layer_MasterStateTotals_6,layer_MasterClustered_7,layer_MasterwNames_8]);
         });
         </script>
     </body>
