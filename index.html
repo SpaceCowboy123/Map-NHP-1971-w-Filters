@@ -174,6 +174,9 @@
                         <td colspan="2">' + (feature.properties['Last Name (Maiden Name)'] !== null ? autolinker.link(feature.properties['Last Name (Maiden Name)'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
+                        <td colspan="2">' + (feature.properties['First Name (Preferred)'] !== null ? autolinker.link(feature.properties['First Name (Preferred)'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
                         <td colspan="2">' + (feature.properties['Married Name (Surname)'] !== null ? autolinker.link(feature.properties['Married Name (Surname)'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
@@ -259,6 +262,10 @@
                     <tr>\
                         <th scope="row">Last Name (Maiden Name)</th>\
                         <td>' + (feature.properties['Last Name (Maiden Name)'] !== null ? autolinker.link(feature.properties['Last Name (Maiden Name)'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">First Name (Preferred)</th>\
+                        <td>' + (feature.properties['First Name (Preferred)'] !== null ? autolinker.link(feature.properties['First Name (Preferred)'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Married Name (Surname)</th>\
@@ -377,6 +384,10 @@
                         <td>' + (feature.properties['Last Name (Maiden Name)'] !== null ? autolinker.link(feature.properties['Last Name (Maiden Name)'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
+                        <th scope="row">First Name (Preferred)</th>\
+                        <td>' + (feature.properties['First Name (Preferred)'] !== null ? autolinker.link(feature.properties['First Name (Preferred)'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
                         <th scope="row">Married Name (Surname)</th>\
                         <td>' + (feature.properties['Married Name (Surname)'] !== null ? autolinker.link(feature.properties['Married Name (Surname)'].toLocaleString()) : '') + '</td>\
                     </tr>\
@@ -487,6 +498,10 @@
                     <tr>\
                         <th scope="row">Last Name (Maiden Name)</th>\
                         <td>' + (feature.properties['Last Name (Maiden Name)'] !== null ? autolinker.link(feature.properties['Last Name (Maiden Name)'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">First Name (Preferred)</th>\
+                        <td>' + (feature.properties['First Name (Preferred)'] !== null ? autolinker.link(feature.properties['First Name (Preferred)'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Married Name (Surname)</th>\
@@ -677,7 +692,7 @@
         document.getElementById("all").appendChild(col1);
         document.getElementById("all").appendChild(col2);
         col1.appendChild(mapDiv)
-        var Filters = {"Deceased?": "str","Name": "str","State Code": "str","Group-Class": "str","Address Type": "str"};
+        var Filters = {"Name": "str","Group-Class": "str","Address Type": "str","Deceased?": "str","State Code": "str"};
         function filterFunc() {
           map.eachLayer(function(lyr){
           if ("options" in lyr && "dataVar" in lyr["options"]){
@@ -808,38 +823,6 @@
         }
             document.getElementById("menu").appendChild(
                 document.createElement("div"));
-            var div_Deceased = document.createElement('div');
-            div_Deceased.id = "div_Deceased";
-            div_Deceased.className= "filterselect";
-            document.getElementById("menu").appendChild(div_Deceased);
-            sel_Deceased = document.createElement('select');
-            sel_Deceased.multiple = true;
-            sel_Deceased.size = 3;
-            sel_Deceased.id = "sel_Deceased";
-            var Deceased_options_str = "<option value='' unselected></option>";
-            sel_Deceased.onchange = function(){filterFunc()};
-            Deceased_options_str  += '<option value="Deceased">Deceased</option>';
-            Deceased_options_str  += '<option value="N/A">N/A</option>';
-            Deceased_options_str  += '<option value="Still Alive & Well">Still Alive & Well</option>';
-            sel_Deceased.innerHTML = Deceased_options_str;
-            div_Deceased.appendChild(sel_Deceased);
-            var lab_Deceased = document.createElement('div');
-            lab_Deceased.innerHTML = 'Deceased?';
-            lab_Deceased.className = 'filterlabel';
-            div_Deceased.appendChild(lab_Deceased);
-            var reset_Deceased = document.createElement('div');
-            reset_Deceased.innerHTML = 'clear filter';
-            reset_Deceased.className = 'filterlabel';
-            reset_Deceased.onclick = function() {
-                var options = document.getElementById("sel_Deceased").options;
-                for (var i=0; i < options.length; i++) {
-                    options[i].selected = false;
-                }
-                filterFunc();
-            };
-            div_Deceased.appendChild(reset_Deceased);
-            document.getElementById("menu").appendChild(
-                document.createElement("div"));
             var div_Name = document.createElement('div');
             div_Name.id = "div_Name";
             div_Name.className= "filterselect";
@@ -850,6 +833,7 @@
             sel_Name.id = "sel_Name";
             var Name_options_str = "<option value='' unselected></option>";
             sel_Name.onchange = function(){filterFunc()};
+            Name_options_str  += '<option value="Alaska (1)">Alaska (1)</option>';
             Name_options_str  += '<option value="Alfino, Philip">Alfino, Philip</option>';
             Name_options_str  += '<option value="Alverson, Jay">Alverson, Jay</option>';
             Name_options_str  += '<option value="Ammon, Robert">Ammon, Robert</option>';
@@ -992,7 +976,7 @@
             Name_options_str  += '<option value="Harbich, Frederic">Harbich, Frederic</option>';
             Name_options_str  += '<option value="Hawaii (1)">Hawaii (1)</option>';
             Name_options_str  += '<option value="Healy, Peter Burke">Healy, Peter Burke</option>';
-            Name_options_str  += '<option value="Healy-00, Peter Burke">Healy-00, Peter Burke</option>';
+            Name_options_str  += '<option value="Healy-00-U (N/A-00-U), Peter-00-U (Petey-00-U)Burke-00-U">Healy-00-U (N/A-00-U), Peter-00-U (Petey-00-U)Burke-00-U</option>';
             Name_options_str  += '<option value="Healy-01, Peter Burke">Healy-01, Peter Burke</option>';
             Name_options_str  += '<option value="Healy-02, Peter Burke">Healy-02, Peter Burke</option>';
             Name_options_str  += '<option value="Healy-03, Peter Burke">Healy-03, Peter Burke</option>';
@@ -1126,7 +1110,7 @@
             Name_options_str  += '<option value="Payne, Robert">Payne, Robert</option>';
             Name_options_str  += '<option value="Pelletiere, John">Pelletiere, John</option>';
             Name_options_str  += '<option value="Pelletiere, Joseph (Joe)">Pelletiere, Joseph (Joe)</option>';
-            Name_options_str  += '<option value="Pennsylvania (22)">Pennsylvania (22)</option>';
+            Name_options_str  += '<option value="Pennsylvania (21)">Pennsylvania (21)</option>';
             Name_options_str  += '<option value="Perna, Andrew">Perna, Andrew</option>';
             Name_options_str  += '<option value="Perrotti (Lenz), Maryann">Perrotti (Lenz), Maryann</option>';
             Name_options_str  += '<option value="Pesa, Frank">Pesa, Frank</option>';
@@ -1255,67 +1239,6 @@
             div_Name.appendChild(reset_Name);
             document.getElementById("menu").appendChild(
                 document.createElement("div"));
-            var div_StateCode = document.createElement('div');
-            div_StateCode.id = "div_StateCode";
-            div_StateCode.className= "filterselect";
-            document.getElementById("menu").appendChild(div_StateCode);
-            sel_StateCode = document.createElement('select');
-            sel_StateCode.multiple = true;
-            sel_StateCode.size = 10;
-            sel_StateCode.id = "sel_StateCode";
-            var StateCode_options_str = "<option value='' unselected></option>";
-            sel_StateCode.onchange = function(){filterFunc()};
-            StateCode_options_str  += '<option value="AR">AR</option>';
-            StateCode_options_str  += '<option value="AZ">AZ</option>';
-            StateCode_options_str  += '<option value="CA">CA</option>';
-            StateCode_options_str  += '<option value="CO">CO</option>';
-            StateCode_options_str  += '<option value="CT">CT</option>';
-            StateCode_options_str  += '<option value="DE">DE</option>';
-            StateCode_options_str  += '<option value="FL">FL</option>';
-            StateCode_options_str  += '<option value="FRANCE">FRANCE</option>';
-            StateCode_options_str  += '<option value="GA">GA</option>';
-            StateCode_options_str  += '<option value="HI">HI</option>';
-            StateCode_options_str  += '<option value="IL">IL</option>';
-            StateCode_options_str  += '<option value="IN">IN</option>';
-            StateCode_options_str  += '<option value="KY">KY</option>';
-            StateCode_options_str  += '<option value="MA">MA</option>';
-            StateCode_options_str  += '<option value="MD">MD</option>';
-            StateCode_options_str  += '<option value="MI">MI</option>';
-            StateCode_options_str  += '<option value="MN">MN</option>';
-            StateCode_options_str  += '<option value="MO">MO</option>';
-            StateCode_options_str  += '<option value="NC">NC</option>';
-            StateCode_options_str  += '<option value="NJ">NJ</option>';
-            StateCode_options_str  += '<option value="NM">NM</option>';
-            StateCode_options_str  += '<option value="NV">NV</option>';
-            StateCode_options_str  += '<option value="NY">NY</option>';
-            StateCode_options_str  += '<option value="OH">OH</option>';
-            StateCode_options_str  += '<option value="OK">OK</option>';
-            StateCode_options_str  += '<option value="PA">PA</option>';
-            StateCode_options_str  += '<option value="RI">RI</option>';
-            StateCode_options_str  += '<option value="SC">SC</option>';
-            StateCode_options_str  += '<option value="TN">TN</option>';
-            StateCode_options_str  += '<option value="TX">TX</option>';
-            StateCode_options_str  += '<option value="VA">VA</option>';
-            StateCode_options_str  += '<option value="WI">WI</option>';
-            sel_StateCode.innerHTML = StateCode_options_str;
-            div_StateCode.appendChild(sel_StateCode);
-            var lab_StateCode = document.createElement('div');
-            lab_StateCode.innerHTML = 'State Code';
-            lab_StateCode.className = 'filterlabel';
-            div_StateCode.appendChild(lab_StateCode);
-            var reset_StateCode = document.createElement('div');
-            reset_StateCode.innerHTML = 'clear filter';
-            reset_StateCode.className = 'filterlabel';
-            reset_StateCode.onclick = function() {
-                var options = document.getElementById("sel_StateCode").options;
-                for (var i=0; i < options.length; i++) {
-                    options[i].selected = false;
-                }
-                filterFunc();
-            };
-            div_StateCode.appendChild(reset_StateCode);
-            document.getElementById("menu").appendChild(
-                document.createElement("div"));
             var div_GroupClass = document.createElement('div');
             div_GroupClass.id = "div_GroupClass";
             div_GroupClass.className= "filterselect";
@@ -1378,6 +1301,100 @@
                 filterFunc();
             };
             div_AddressType.appendChild(reset_AddressType);
+            document.getElementById("menu").appendChild(
+                document.createElement("div"));
+            var div_Deceased = document.createElement('div');
+            div_Deceased.id = "div_Deceased";
+            div_Deceased.className= "filterselect";
+            document.getElementById("menu").appendChild(div_Deceased);
+            sel_Deceased = document.createElement('select');
+            sel_Deceased.multiple = true;
+            sel_Deceased.size = 3;
+            sel_Deceased.id = "sel_Deceased";
+            var Deceased_options_str = "<option value='' unselected></option>";
+            sel_Deceased.onchange = function(){filterFunc()};
+            Deceased_options_str  += '<option value="Deceased">Deceased</option>';
+            Deceased_options_str  += '<option value="N/A">N/A</option>';
+            Deceased_options_str  += '<option value="Still Alive & Well">Still Alive & Well</option>';
+            sel_Deceased.innerHTML = Deceased_options_str;
+            div_Deceased.appendChild(sel_Deceased);
+            var lab_Deceased = document.createElement('div');
+            lab_Deceased.innerHTML = 'Deceased?';
+            lab_Deceased.className = 'filterlabel';
+            div_Deceased.appendChild(lab_Deceased);
+            var reset_Deceased = document.createElement('div');
+            reset_Deceased.innerHTML = 'clear filter';
+            reset_Deceased.className = 'filterlabel';
+            reset_Deceased.onclick = function() {
+                var options = document.getElementById("sel_Deceased").options;
+                for (var i=0; i < options.length; i++) {
+                    options[i].selected = false;
+                }
+                filterFunc();
+            };
+            div_Deceased.appendChild(reset_Deceased);
+            document.getElementById("menu").appendChild(
+                document.createElement("div"));
+            var div_StateCode = document.createElement('div');
+            div_StateCode.id = "div_StateCode";
+            div_StateCode.className= "filterselect";
+            document.getElementById("menu").appendChild(div_StateCode);
+            sel_StateCode = document.createElement('select');
+            sel_StateCode.multiple = true;
+            sel_StateCode.size = 10;
+            sel_StateCode.id = "sel_StateCode";
+            var StateCode_options_str = "<option value='' unselected></option>";
+            sel_StateCode.onchange = function(){filterFunc()};
+            StateCode_options_str  += '<option value="AK">AK</option>';
+            StateCode_options_str  += '<option value="AR">AR</option>';
+            StateCode_options_str  += '<option value="AZ">AZ</option>';
+            StateCode_options_str  += '<option value="CA">CA</option>';
+            StateCode_options_str  += '<option value="CO">CO</option>';
+            StateCode_options_str  += '<option value="CT">CT</option>';
+            StateCode_options_str  += '<option value="DE">DE</option>';
+            StateCode_options_str  += '<option value="FL">FL</option>';
+            StateCode_options_str  += '<option value="FRANCE">FRANCE</option>';
+            StateCode_options_str  += '<option value="GA">GA</option>';
+            StateCode_options_str  += '<option value="HI">HI</option>';
+            StateCode_options_str  += '<option value="IL">IL</option>';
+            StateCode_options_str  += '<option value="IN">IN</option>';
+            StateCode_options_str  += '<option value="KY">KY</option>';
+            StateCode_options_str  += '<option value="MA">MA</option>';
+            StateCode_options_str  += '<option value="MD">MD</option>';
+            StateCode_options_str  += '<option value="MI">MI</option>';
+            StateCode_options_str  += '<option value="MN">MN</option>';
+            StateCode_options_str  += '<option value="MO">MO</option>';
+            StateCode_options_str  += '<option value="NC">NC</option>';
+            StateCode_options_str  += '<option value="NJ">NJ</option>';
+            StateCode_options_str  += '<option value="NM">NM</option>';
+            StateCode_options_str  += '<option value="NV">NV</option>';
+            StateCode_options_str  += '<option value="NY">NY</option>';
+            StateCode_options_str  += '<option value="OH">OH</option>';
+            StateCode_options_str  += '<option value="OK">OK</option>';
+            StateCode_options_str  += '<option value="PA">PA</option>';
+            StateCode_options_str  += '<option value="RI">RI</option>';
+            StateCode_options_str  += '<option value="SC">SC</option>';
+            StateCode_options_str  += '<option value="TN">TN</option>';
+            StateCode_options_str  += '<option value="TX">TX</option>';
+            StateCode_options_str  += '<option value="VA">VA</option>';
+            StateCode_options_str  += '<option value="WI">WI</option>';
+            sel_StateCode.innerHTML = StateCode_options_str;
+            div_StateCode.appendChild(sel_StateCode);
+            var lab_StateCode = document.createElement('div');
+            lab_StateCode.innerHTML = 'State Code';
+            lab_StateCode.className = 'filterlabel';
+            div_StateCode.appendChild(lab_StateCode);
+            var reset_StateCode = document.createElement('div');
+            reset_StateCode.innerHTML = 'clear filter';
+            reset_StateCode.className = 'filterlabel';
+            reset_StateCode.onclick = function() {
+                var options = document.getElementById("sel_StateCode").options;
+                for (var i=0; i < options.length; i++) {
+                    options[i].selected = false;
+                }
+                filterFunc();
+            };
+            div_StateCode.appendChild(reset_StateCode);
         resetLabels([layer_ClassStateTotals_6,layer_ClassClustered_7,layer_ClasswNames_8]);
         map.on("zoomend", function(){
             resetLabels([layer_ClassStateTotals_6,layer_ClassClustered_7,layer_ClasswNames_8]);
